@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "prd-template": {
+      "source": "mohitagw15856/pm-claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/prd-template/SKILL.md",
+      "computedHash": "2ec88e51d3d91c010285012ee30393e53592328b3aa752c69073f492f6331e8b"
+    }
+  }
+}
