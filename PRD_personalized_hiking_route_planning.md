@@ -1,228 +1,242 @@
 # PRD: Personalized Hiking Route Recommendation & Planning (MVP)
 
-**Status:** Draft · **Author:** Ruby Wu · **Last updated:** 2026-08-21 · **Reviewers:** TBD — see [Open Questions § Stakeholders](#8-open-questions)
-
-> Source: `personalized_hiking_prd_input.md`. Several input sections were explicitly marked incomplete by the author (research evidence, metric baselines/targets, NFR targets, out-of-scope confirmation, stakeholders). Per the input's own generation instructions, this PRD does not invent content to fill those gaps — it carries them forward as open questions or flagged placeholders, tagged `[data]` / `[hunch]` / `[assumption]` where a claim's provenance matters.
-
----
-
 ## 1. Overview
 
 ### Problem Statement
-
-Beginner hikers (登山新手) lack the experience to translate a route's physical demand, slope, technical difficulty, and terrain risk into a judgment of whether that route fits their own ability and constraints. A single "easy / moderate / hard" label doesn't give them enough to decide **which route is right for them**, and even after finding route information, they must interpret and assemble it themselves — adding effort to both route selection and pre-trip planning. *(No quantified baseline exists yet — Section 4 of the source input is unfilled; see [Open Questions](#8-open-questions).)*
+When researching and planning an unfamiliar trail, hiking novices lack the experience needed to translate a route's physical demands, gradient, technical requirements, and terrain risk into terms they can compare against their own fitness, time, and constraints. This leaves them unable to judge whether a given route is right for them, and — once a route is picked — how to actually execute the hike safely. Even when route information exists, it is scattered across sources and requires the user to interpret and assemble it themselves, adding friction and uncertainty to both the route-selection decision and pre-trip preparation. `[data — user interviews + journey mapping, Findings 1–3, see Appendix]`
 
 ### Proposed Solution
-
-Build a **Find → Plan → Go** MVP experience: break route difficulty into beginner-legible dimensions, capture a user's Hiking Profile, recommend 3–5 candidate routes with an explained Route Fit, generate a Personalized Hiking Plan once a route is chosen (transportation/trailhead, route timeline, suggested time schedule, key points), and surface a Departure Checklist before the trip.
+A three-stage Find → Plan → Go experience. **Find**: break trail difficulty into novice-legible dimensions, combine them with a saved Hiking Profile, and surface 3–5 personalized route recommendations with a transparent "Route Fit" explanation for each. **Plan**: once a route is selected, auto-generate a Personalized Hiking Plan covering transportation/trailhead, a segmented route timeline, a suggested time schedule, and key points. **Go**: before departure, surface a Departure Checklist to confirm the user hasn't missed critical safety preparation.
 
 ### Success Metrics
+> **Status: candidate metrics only — no baseline or target defined yet.** Per source section 10, these must be validated and baselined before they can gate a launch decision. Listed here as the current best candidates; see Open Questions.
 
-| Metric | Baseline (today) | Target | When measured |
-|---|---|---|---|
-| % of users who successfully select a route after receiving recommendations | Unknown / to be measured | To be defined after baseline measurement | TBD |
-| Time from beginning route exploration to final route selection | Unknown / to be measured | To be defined after baseline measurement | TBD |
-| % of generated Hiking Plans viewed before departure | Unknown / to be measured | To be defined after baseline measurement | TBD |
-| **Guardrail:** % of users who report Route Fit explanations as misleading or inconsistent | Unknown / to be measured | Must not increase post-launch | TBD |
+*Primary Outcome*
+- % of users who, after receiving recommendations, select a route
+- Time from starting exploration to selecting a final route
+- Self-reported confidence in "I know whether this route is right for me" (survey)
+- % of recommended routes that get carried into hiking plan generation
 
-> These four are pulled from a larger candidate list in the source input (Section 10) as the closest fit to the template's Outcome/Adoption/Guardrail slots. **None have a baseline or an instrumented owner yet** — per the [success-metrics guide](.agents/skills/prd-template/references/success-metrics-guide.md), a target without a baseline is unfalsifiable, so Phase 1 of implementation must include instrumenting these before a launch review can score against them. Full candidate metric set:
->
-> - **Outcome:** route-selection success rate; exploration→selection time; user-reported confidence in "I know whether this route fits me"; % of recommended routes added to a plan.
-> - **Planning funnel:** % of selected routes that proceed to plan generation; % of plans viewed before departure; Departure Checklist completion/usage rate.
-> - **Guardrail:** % reporting Route Fit as misleading/inconsistent; % of recommendations rejected for violating stated Profile constraints; % of users who leave the product to find missing core planning information.
+*Planning*
+- % of selected routes that go on to generate a Personalized Hiking Plan
+- % of generated plans viewed again before departure
+- Departure Checklist completion / usage rate
 
----
+*Guardrail*
+- % of users who find Route Fit reasoning misleading or inconsistent
+- % of recommended routes rejected for violating the user's own stated Profile constraints
+- % of users who leave the product to find core planning info elsewhere
+
+`[gap]` No current baseline exists for any metric (source: section 10, "目前基準值：未知／待量測"). Per the prd-template skill's phase-2 gate, this PRD cannot claim a metric is "baselined" — it is carried forward as an explicit open item.
 
 ## 2. Context & Background
 
-**Why Now:** Not provided in the source input — no forcing event (competitive move, declining metric, expiring commitment) is documented. **[Open Question — Product/Business]**
+### Why Now
+`[gap]` The source material does not include a business trigger, competitive event, or timing rationale for why this should be built now. Not fabricated here — see Open Questions.
 
-**Strategic Alignment:** Not provided in the source input — no company/team objective is quoted. **[Open Question — Product/Business]**
+### Strategic Alignment
+`[gap]` No company objective or OKR was provided in the source material to align this PRD against. See Open Questions.
 
-**User Research Summary:** Not yet completed. The source input (Section 4) scaffolds three intended findings — route difficulty is hard to interpret, users need personalized route selection, planning information is fragmented — plus a journey-friction-points slot, but every finding, evidence figure, and source is marked `[待補]` (to be filled in). **No interview counts, journey-map scores, or analytics are available, and none are asserted here.** The P0 scope below is instead traceable to the input's own Problem Statement and to explicitly labeled assumptions (Section 13) — see the traceability note under [Requirements](#4-requirements).
+### User Research Summary
+Two rounds of user interviews were completed, focused on (1) personalized route recommendation and (2) personalized hiking-plan generation, with hiking novices ("unfamiliar with route knowledge, but motivated to hike") as the interview population. `[data]`
 
----
+**Finding 1 — Route difficulty is hard to interpret.** Novices can't tell whether a route labeled "easy" or "beginner-friendly" actually matches their fitness and experience, because everyone defines "easy" differently — and distance/time/elevation-gain numbers don't translate into "will this exhaust me." Users wanted specifics: stair count, sustained climbs, slippery surfaces, rope-assisted sections, which segment is hardest, and whether the descent will stress their knees. *(Source: personalized-route-recommendation interviews; journey map — "comparing whether a route fits me" stage)*
+
+**Finding 2 — Users need personalized route selection, not just popular/beginner lists.** Users weigh whether a route is well-trodden by beginners, completable in 2–4 hours, easy to reach, scenic, and currently in good condition — but what they actually want to know is "can a novice like me finish this." Stated fears: running out of energy mid-route, the descent hurting more than the ascent, inaccurate time estimates, and not knowing where to rest or bail out. Users expect AI recommendations to include a personalized fitness assessment, a stated reason, a beginner-suitability read, difficulty callouts, alternatives, and supporting data. *(Source: personalized-route-recommendation interviews; AI-recommendation-trust interviews; journey map — "deciding whether to pick this route" stage)*
+
+**Finding 3 — Planning information is fragmented.** Pre-trip planning info is scattered across blogs, YouTube, Instagram, Google Maps reviews, friend recommendations, hiking forums, official notices, and weather apps — inconsistent formats, some content stale enough that users can't tell if it's still valid. After picking a route, users still need to confirm route details, transportation, recent trail conditions, weather, gear/supplies, map screenshots, and departure/return times; unclear weather, trail conditions, transport, timing, difficulty, gear, or contingency plans make users reluctant to actually go. *(Source: both interview sets; journey map — "gathering candidate routes," "checking weather/conditions/safety," "final pre-departure check" stages)*
+
+**Journey friction points.** The lowest-scoring steps are "comparing whether a route fits me" and "making the final go/no-go call" — the moments requiring the most judgment under the most uncertainty and psychological pressure. Users have access to distance, time, elevation, photos, reviews, and weather, but struggle to convert that data into "can I finish this," "is today a go," "when do I need to turn back," "how much water to bring," or "what do I do if weather or energy turns." *(Source: journey map friction analysis)*
+
+Related opportunity areas identified in research: personalized route-fit judgment; difficulty translation into novice-legible terms; weather/conditions turned into an explicit go/reschedule/no-go call; automatic hiking-plan generation; and a pre-departure refresh of time-sensitive data. These map directly to the MVP scope in Section 4.
 
 ## 3. User Stories & Use Cases
 
-**US1 — Understand Route Difficulty**
-As a beginner hiker, I want to understand a route's difficulty by specific dimensions, so that I can judge what parts of the route may be challenging for me.
+### US1 — Understand route difficulty
+As a **hiking novice**, I want to understand a route's challenge level through concrete difficulty dimensions, so that I can judge which segments will likely be hardest for me.
 
 Acceptance Criteria:
-- [ ] Route difficulty is displayed across multiple dimensions, at minimum: physical demand, slope/gradient, technical requirement, terrain risk.
-- [ ] A route is never shown with only a single aggregate "easy/moderate/hard" label and no dimension breakdown.
-- [ ] Which additional dimensions (beyond the four named above) are required for MVP is **unresolved** — source input leaves "other beginner-relevant difficulty information" open. **[Open Question]**
+- Each route displays a difficulty breakdown across 4 dimensions: Stamina, Steepness, Technical Trail, Sun Exposure (per Section 4 below)
+- Each dimension shows a plain-language tier, not just a raw number (e.g., "sustained stairs — hard on knees")
+- Breakdown is visible before the user commits to viewing full route details
 
-**US2 — Build Hiking Profile**
-As a beginner hiker, I want to describe my hiking experience, physical condition, time constraints, transportation options, terrain restrictions, and preferences, so that recommendations can reflect my actual situation.
-
-Acceptance Criteria:
-- [ ] Profile capture includes: hiking experience, physical condition, acceptable hiking duration, transportation method, terrain restrictions, personal preferences.
-- [ ] Which fields are mandatory vs. optional, and whether the Profile persists across trips or is edited per-trip, are **unresolved**. **[Open Question]**
-
-**US3 — Receive Personalized Recommendations**
-As a beginner hiker, I want to receive 3–5 routes that match my profile and current needs, so that I do not need to manually evaluate a large number of routes.
+### US2 — Build a hiking profile
+As a **hiking novice**, I want to describe my experience, physical condition, time constraints, transportation, terrain limits, and preferences, so that recommended routes match my actual situation.
 
 Acceptance Criteria:
-- [ ] Given a completed Profile and trip-specific input, the system returns between 3 and 5 candidate routes.
-- [ ] Behavior when fewer than 3 routes satisfy the Profile's constraints is **unresolved** — not specified in the source input, and not invented here. **[Open Question]**
-- [ ] Why 3–5 is the right range is stated in the source as an **[assumption]**, not a validated finding.
+- User can complete the 3 required fields (Duration Budget, Transportation Mode, Physical Condition) and any of the 3 optional fields (Hiking Experience, Terrain/Safety Constraints, Scenic Preferences)
+- Profile is saved to the account and persists across sessions
+- Profile auto-loads on every recommendation search
+- User can temporarily override a field for a single search (e.g., "3 hours only today") without altering the saved baseline profile
 
-**US4 — Understand Route Fit**
-As a beginner hiker, I want to know why a route is or is not suitable for me, so that I can trust the recommendation and make the final decision myself.
-
-Acceptance Criteria:
-- [ ] Each recommended route shows a Route Fit explanation covering: why it's recommended, which conditions matched, which did not, and why it might not be recommended.
-- [ ] Whether Route Fit is expressed as a score, a level, free text, or a combination is **unresolved**. **[Open Question]**
-
-**US5 — Generate Hiking Plan**
-As a beginner hiker, I want to receive a personalized plan after selecting a route, so that I know how to turn the route choice into an executable hiking trip.
+### US3 — Get personalized route recommendations
+As a **hiking novice**, I want to receive 3–5 routes matched to my Profile and current request, so that I don't have to manually evaluate a large list myself.
 
 Acceptance Criteria:
-- [ ] Selecting a route triggers generation of a Personalized Hiking Plan derived from that route and the user's Profile.
-- [ ] The Plan includes, at minimum, the four sub-components in US6–US8 below plus transportation/trailhead information.
+- Recommendation set contains 3–5 routes, never more than 5
+- Recommendations reflect both the saved Profile and any same-session overrides
+- Set includes deliberate variety where possible (e.g., one easiest, one most scenic, one more challenging) `[assumption — see Section 9]`
 
-**US6 — Understand Route Timeline**
-As a beginner hiker, I want to see the route broken into major segments with distance, time, and difficulty, so that I can understand how the trip will progress.
-
-Acceptance Criteria:
-- [ ] The Plan breaks the full route into major segments.
-- [ ] Each segment displays distance, estimated time, and segment-level difficulty.
-
-**US7 — Plan My Time**
-As a beginner hiker, I want recommended departure, checkpoint, and descent times, so that I can organize the trip without having to estimate the entire schedule myself.
+### US4 — Understand route fit
+As a **hiking novice**, I want to know why a route is or isn't a fit for me, so that I can trust the recommendation and make my own final call.
 
 Acceptance Criteria:
-- [ ] The Plan includes a suggested departure time, arrival times at key checkpoints, suggested rest points, and an estimated descent/finish time.
-- [ ] How personalized this schedule is (e.g., adjusted by the user's stated physical condition vs. a generic pace) is **unresolved**. **[Open Question]**
+- Each recommended route displays a Route Fit tier: "Highly Recommended," "Moderate Challenge," or "Not Recommended"
+- Each route shows structured text listing both fit reasons (e.g., "direct public transit access") and caution points (e.g., "many stairs," "high sun exposure") — not a bare numeric score
+- A route violating a hard constraint (unreachable by stated transport, exceeds time budget, exceeds the user's experience-based difficulty ceiling) is always shown as "Not Recommended," never as a soft-scored option
 
-**US8 — Prepare Before Departure**
-As a beginner hiker, I want a departure checklist, so that I can confirm essential preparations before leaving.
+### US5 — Generate a hiking plan
+As a **hiking novice**, I want a personalized hiking plan once I've picked a route, so that I know how to turn that choice into an executable trip.
 
 Acceptance Criteria:
-- [ ] A Departure Checklist is available before the trip, covering at minimum: gear, maps, transportation, and other necessary pre-departure items.
-- [ ] The exact item list is **unresolved** — source input names categories, not items. **[Open Question]**
+- Plan generation is triggered by selecting a recommended route
+- Plan includes transportation/trailhead info, route timeline, suggested schedule, and key points (Section 4)
+- Plan is saved and can be reopened before departure
 
----
+### US6 — Understand the route timeline
+As a **hiking novice**, I want the route broken into major segments with distance, time, and difficulty per segment, so that I understand how the full hike will unfold.
+
+Acceptance Criteria:
+- Timeline breaks the route into segments, each showing distance, estimated time, and segment-level difficulty
+- Segments are presented in hiking order
+
+### US7 — Plan trip timing
+As a **hiking novice**, I want a suggested departure time, checkpoint times, and turnaround/descent time, so that I don't have to estimate the whole schedule myself.
+
+Acceptance Criteria:
+- Schedule applies a pace multiplier to base route time reflecting the user's stated fitness `[implementation approach — see Technical Considerations]`
+- Schedule flags a latest-safe-turnaround time anchored to that day's sunset
+- Schedule inserts rest breaks at regular intervals or key nodes
+
+### US8 — Prepare before departure
+As a **hiking novice**, I want a pre-departure checklist, so that I can confirm I haven't missed anything essential before leaving.
+
+Acceptance Criteria:
+- Checklist covers: map/GPX + offline map app, water/food with a route- and weather-specific quantity suggestion, gear (rain gear, non-slip footwear, backup headlamp), current trailhead weather and transit schedule, and sharing the plan with an emergency contact
+- User can mark items complete
+- Checklist is reachable from the saved hiking plan
 
 ## 4. Requirements
 
-### Traceability note
+### Functional Requirements — P0 (MVP)
 
-Per generation instruction #2, every P0 requirement below traces to one of: the Problem Statement (§3 of the source input), an explicitly labeled assumption (§13 of the source input), or a still-open research question (§14). None trace to cited user research, because none exists yet in the source material — this is itself flagged, not concealed.
+All items below are P0; the source material does not define a P1/P2 tier for this MVP — everything not listed here is explicitly Out of Scope (Section 7) rather than a lower-priority in-scope item.
 
-### Functional Requirements
+**Find**
+1. **Route Difficulty Breakdown** — traces to: US1, Finding 1. Present difficulty across 4 dimensions: Stamina (based on distance + elevation gain), Steepness (flat / sustained stairs / steep climb), Technical Trail (loose rock, mud/slippery, hands-required/rope sections), Sun Exposure (shaded / partial / fully exposed).
+2. **Hiking Profile** — traces to: US2, Finding 2, `[assumption]` (Section 9). Required fields: Duration Budget, Transportation Mode, Physical Condition. Optional fields: Hiking Experience, Terrain/Safety Constraints, Scenic Preferences. Persisted to account; auto-loaded per search; per-search overrides do not overwrite the saved baseline.
+3. **Personalized Route Recommendation** — traces to: US3, Finding 2, `[assumption]` (Section 9: 3–5 balances choice against decision fatigue). Return 3–5 candidate routes per search.
+4. **Route Fit** — traces to: US4, Finding 1, Finding 2. Every recommended route carries a Route Fit tier (Highly Recommended / Moderate Challenge / Not Recommended) plus structured reasons-for and caution-points text. Hard constraints (transport unreachable, time budget exceeded, difficulty beyond the user's experience ceiling) force "Not Recommended" — never soft-scored around.
 
-**Must-have (P0) — all items below are P0 in the source input; the input defines no P1/P2 tier for MVP.**
+**Plan**
+5. **Personalized Hiking Plan** — traces to: US5, Finding 3. Generated automatically once a route is selected, combining the route with the user's Profile.
+6. **Transportation & Trailhead** — traces to: US5, US6, Finding 3. Shows transportation to the trailhead, trailhead location, and required entry/arrival info. `[implementation note]` MVP may integrate Google Maps or another external map/transit service — this is an implementation approach, not a committed product requirement (per generation rule 8).
+7. **Route Timeline** — traces to: US6, Finding 3. Breaks the full route into segments, each showing distance, estimated time, and segment difficulty.
+8. **Suggested Time Schedule** — traces to: US7, Finding 3. Provides a personalized schedule combining a fitness-based pace adjustment, a sunset-anchored latest-safe-turnaround time, and scheduled rest breaks. `[implementation note]` The specific pace-multiplier range and rest-interval cadence described in the source's Technical & Data Considerations (Section 6 below) are implementation approach, not settled product requirements, per generation rule 8 — the product requirement is that a personalized, safety-anchored schedule exists, not the specific multiplier value.
+9. **Key Points** — traces to: US6, Finding 1, Finding 3. Flags the hardest segment, main rest points, and segments needing extra caution.
 
-| Requirement | Traces to |
-|---|---|
-| System presents Route Difficulty Breakdown across multiple dimensions | Problem Statement — "single label doesn't convey actual challenge" |
-| System creates and persists a Hiking Profile | Problem Statement — "lacks a way to describe own ability/constraints" |
-| System returns 3–5 candidate routes based on Profile + trip-specific need | Problem Statement + `[assumption]` that 3–5 is the right choice-effort balance |
-| Each recommended route displays a Route Fit | Problem Statement — "even with a recommendation, users need to know why" |
-| Route Fit states recommend/not-recommend reasons | Same as above |
-| On route selection, system generates a Personalized Hiking Plan | Problem Statement — "still need help turning a chosen route into an executable trip" |
-| Hiking Plan includes transportation & trailhead info | Same, + `[assumption]` that Google Maps/external services suffice for MVP |
-| Hiking Plan includes Route Timeline | Problem Statement — planning info is fragmented and needs assembling |
-| Hiking Plan includes a suggested time schedule | Same |
-| Hiking Plan includes Key Points (hardest segment, rest points, cautions) | Same |
-| User can view a Departure Checklist before departure | Problem Statement — "no simple pre-departure confirmation flow" + `[assumption]` this is worth its build cost |
-
-**Should-have (P1) / Nice-to-have (P2):** Not defined in the source input. Do not treat any item above as P1/P2-demotable without a scoping decision — see [Implementation Plan](#7-implementation-plan).
+**Go**
+10. **Departure Checklist** — traces to: US8, Finding 3, `[assumption]` (Section 9). Covers map/offline navigation, water/food quantity suggestion, gear, live trailhead weather/transit confirmation, and sharing the plan with an emergency contact.
 
 ### Non-Functional Requirements
-
-The source input (Section 11) names required NFR topics but supplies **no targets** — per generation instruction #3, none are invented here. Each needs an explicit target from Engineering/Product before build:
-
-- Performance / page load time — no target set
-- Recommendation response time — no target set
-- Accessibility — no standard specified (e.g., WCAG level)
-- Data privacy for Hiking Profile — no policy specified (Profile includes physical-condition data, which may warrant sensitive-data handling — flagged, not assumed)
-- Availability of external map/transportation services — no SLA specified; MVP's transportation feature is itself dependent on an external service `[assumption]`
-- Error and fallback behavior — undefined (e.g., what happens when route data is incomplete/conflicting, per Section 14's open questions)
-- Mobile usability — no target specified
-- Reliability of route and planning data — no target specified
-
----
+> **Status: not yet defined — to be set jointly with Engineering/Product.** `[gap]` Source section 11 names the following categories with no targets. Listed here as scope markers only; none of these should be read as a committed SLA until targets are set.
+- Performance / page load time
+- Route-recommendation response time
+- Accessibility
+- Hiking Profile data privacy
+- External map/transit service availability
+- Error handling and fallback behavior
+- Mobile usage experience
+- Reliability of route and hiking-plan data
 
 ## 5. Design & User Experience
+`[gap]` No mocks or wireframes were provided in the source material — none are linked here.
 
-- **Mocks/wireframes:** None provided in the source input.
-- **Key user flows:** Find (understand difficulty → build Profile → get recommendations → evaluate Route Fit) → Plan (select route → receive generated Plan covering transportation, timeline, schedule, key points) → Go (review Departure Checklist).
-- **Edge cases and error states:** Largely unresolved — the source input's own open questions surface several without resolving them: fewer than 3 routes match a Profile; route data is incomplete or conflicting; external map/transportation service is unavailable. These need explicit design decisions before build, not default/invented behavior.
+**Key user flow (derived from Find → Plan → Go scope, source Section 6):**
+1. User completes/loads Hiking Profile → optionally overrides for this search
+2. User receives 3–5 recommended routes, each with a Route Fit tier and reasoning
+3. User selects a route → Personalized Hiking Plan is generated (transport, timeline, schedule, key points)
+4. Before departure, user opens the Departure Checklist and confirms readiness
 
----
+**Edge cases / error states named in source material** (source Section 12, "Data Conflict & Conservative Principle"):
+- When weather or trail-condition data sources conflict, the product always surfaces the more conservative safety warning.
+- Plans display a "data last updated" timestamp so users can judge whether information may be stale.
+- Trust hierarchy for conflicting data: official safety/closure notices > active-week community GPX conditions > historical baseline data > general blogs/travel logs.
+
+No other edge cases (e.g., no-connectivity behavior, empty recommendation results, profile-vs-route total mismatch) are specified in the source — flagged as an open design question in Section 8.
 
 ## 6. Technical Considerations
+`[implementation approach as described in source — not restated as product requirements, per generation rule 8]`
 
-- **Recommendation engine architecture:** Whether Personalized Route Recommendation is rule-based, AI-based, or hybrid is an open question in the source input (Section 14) — not decided here.
-- **Route Fit calculation:** How Route Fit is computed is likewise unresolved.
-- **Dependencies:** MVP is expected to integrate Google Maps or another external map/transportation service for trailhead and transportation info — this is an explicit `[assumption]` in the source input, not a confirmed technical decision.
-- **Data sourcing:** What route data source supplies difficulty dimensions (slope, terrain, technical difficulty, risk), transportation/trailhead info, and Route Timeline data is unresolved (Section 14, "Data/Technical").
-- **Risks:** Route data availability/quality is a load-bearing unknown — nearly every P0 feature (difficulty breakdown, recommendations, Route Fit, timeline) depends on data that has no confirmed source yet.
+**Data sources**
+- Difficulty breakdown & trail tagging: government open data (Forestry Agency, county/city open data) for distance/elevation baselines; community GPX tracks for elevation profile and average pace; NLP/LLM extraction of terrain keywords ("rope," "loose rock," "stairs") from community text (Google Maps reviews, hiking-note posts).
+- Transportation & trailhead: public transit via Taiwan's TDX platform or Google Directions API; trailhead location from government trail open data or OSM nodes; parking info from Google Maps Place API + review analysis.
+- Risk & live weather: Central Weather Administration forecast API, Soil and Water Conservation Agency debris-flow warnings, Forestry Agency trail-closure notices.
 
----
+**Personalization / fit model**
+- Hybrid approach: stage 1 rule-based hard filtering (transport, time budget, safety-difficulty threshold); stage 2 fit-score ranking plus LLM-generated Route Fit explanation text.
+- Route Fit scoring: weighted (time fit, stamina fit, transport fit, preference fit) with a hard veto (e.g., difficulty ≥2 tiers above the user's experience level auto-classifies as "Not Recommended").
+- Route Timeline estimation: Naismith's Rule as the base pace model, adjusted by the user's Profile-derived pace multiplier.
+
+**Data conflict handling**
+- Trust hierarchy and conservative-fallback principle as described in Section 5 above.
+
+**Dependencies & risk**
+- MVP relies on multiple external data sources (government open data, TDX/Google APIs, weather APIs) of unverified completeness/reliability for this use case — `[assumption]`, see Section 9.
+- LLM-generated Route Fit text and terrain-tag extraction quality directly affects the trust-building goal of US4 — no accuracy/quality bar has been set (see Open Questions).
 
 ## 7. Implementation Plan
 
-- **Phase 1 (MVP):** All eleven P0 functional requirements listed in §4 — the full Find → Plan → Go experience. The source input does not tier these further.
-- **Phase 2 / Phase 3:** Not defined in the source input. Per generation instruction #5 and #8, no future-phase content is invented here. The source input's Section 12 (Out of Scope) names items explicitly excluded from this MVP and marks its own status as "Needs confirmation": real-time GPS navigation, emergency rescue/SOS, hiking social network, community posting, equipment marketplace/e-commerce, real-time location sharing, advanced training/fitness tracking. No re-entry conditions for these are specified.
+### Phase 1 (MVP)
+All 10 P0 items in Section 4, spanning Find, Plan, and Go, as scoped in source Section 7. Rationale: this is the minimum end-to-end path from "which route fits me" through "how do I execute it" through "am I ready to leave" that the research (Findings 1–3, Journey Friction Points) identified as the core gap.
 
----
+### Phase 2 / Future Enhancements
+> **Status: not committed — needs confirmation before being treated as roadmap, per source Section 13.**
+
+The following are explicitly named as **out of scope for this MVP**, and should stay out unless separately confirmed and approved:
+- Real-time GPS navigation
+- Emergency/SOS
+- Hiking social network / community posting features
+- Gear marketplace / e-commerce
+- Live location sharing
+- Advanced training / fitness tracking
+- Anything not directly required by the Find → Plan → Go MVP
+
+Re-entry condition: none specified in source — should be defined by Product before any of the above is scheduled.
 
 ## 8. Open Questions
+> Per generation rule 7, all of the following are surfaced rather than silently decided. None have an owner or deadline in the source material — both are marked TBD rather than invented.
 
-Carried directly from the source input (Section 14), organized by owner, plus the incomplete-status sections flagged elsewhere in this PRD. None have an assigned owner or deadline in the source material — that assignment itself is an open item.
-
-**Product**
-- Which Hiking Profile fields are mandatory vs. optional?
-- Should Hiking Profile persist, or be editable per trip?
-- What defines Route Fit — and is it a score, level, text, or combination?
-- Why are 3–5 recommendations optimal?
-- Which Route Difficulty dimensions are required for MVP (beyond the four named in US1)?
-- How personalized should the Suggested Time Schedule be?
-- Which items belong in the Departure Checklist?
-
-**Research**
-- Which journey step has the highest friction, per interview evidence? *(no evidence collected yet — Section 4)*
-- Which P0 features address validated pain points vs. rest on assumption?
-- What evidence supports that users want recommendation explanations?
-- What evidence supports that planning-information fragmentation is a significant pain point?
-
-**Data / Technical**
-- What route data is available for the difficulty breakdown?
-- How are slope, terrain, technical difficulty, and risk calculated or sourced?
-- What data source supplies transportation and trailhead information?
-- What data is required to generate Route Timeline?
-- Is Personalized Route Recommendation rule-based, AI-based, or hybrid?
-- How is Route Fit calculated?
-- What happens when route data is incomplete or conflicting?
-
-**Process / Governance (surfaced by this PRD, not the source's Section 14 list)**
-- Success metric baselines and targets are unset — who owns instrumenting them, and by when?
-- Why Now / Strategic Alignment are unstated — needed before prioritization against other initiatives.
-- Stakeholders (Section 15) are only suggested by category (PM, Design, FE, BE, Data/AI Eng if ML-based recommendation, hiking-safety domain expert, business stakeholder, legal/privacy reviewer if required) — no names assigned, no reviewers confirmed.
-- Out of Scope (Section 12) is marked "needs confirmation" — not yet approved as final.
-
----
+| # | Question | Why it matters | Owner | Deadline | Cost of leaving unanswered |
+|---|---|---|---|---|---|
+| 1 | What is the current baseline for each candidate success metric (Section 1)? | Can't tell if MVP moved the needle without one | TBD | TBD | Ships without a way to prove impact |
+| 2 | What are the target values for each success metric once baselined? | Needed to define "success" for this MVP | TBD | TBD | No launch/kill criteria |
+| 3 | What are the NFR targets (performance, accessibility, privacy, reliability, fallback behavior)? | Currently only categories are named, no thresholds | TBD (Eng + Product) | TBD | Engineering can't build to a spec; accessibility/privacy risk goes unmanaged |
+| 4 | Is the Out-of-Scope list (Section 7) final, or does anything on it need to move into MVP? | Currently marked "needs confirmation" in source | TBD | TBD | Scope could silently expand, or a needed feature could stay excluded |
+| 5 | Who are the confirmed stakeholders (source lists only suggested roles: PM, UX, FE, BE, Data/AI Eng, hiking-safety domain expert, business stakeholder, legal/privacy)? | No named reviewers/approvers yet | TBD | TBD | No clear sign-off path, especially for safety-sensitive content |
+| 6 | What is the business/strategic "why now" and OKR alignment for this initiative? | Not present in source material at all | TBD | TBD | Can't prioritize this against other initiatives |
+| 7 | What accuracy/quality bar applies to LLM-generated Route Fit text and terrain-tag extraction? | Directly affects the trust goal in US4; a wrong or misleading Route Fit is also a named guardrail metric | TBD | TBD | Risk of shipping a feature that erodes trust instead of building it |
+| 8 | What happens on no/low-connectivity in the field, or when zero routes match a Profile? | Not addressed in source material | TBD | TBD | Undefined behavior at points of highest user risk (mid-hike, no matches) |
+| 9 | Will users actually trust and follow the recommended turnaround time in the field? | Flagged as `[assumption]` in source Section 14 — safety-relevant if false | TBD | TBD | Core safety mechanism (Suggested Time Schedule) may not change real behavior |
 
 ## 9. Appendix
 
-- Source input: `personalized_hiking_prd_input.md`
-- Template and rubric: `.agents/skills/prd-template/SKILL.md`
-- Success-metrics calibration: `.agents/skills/prd-template/references/success-metrics-guide.md`
-- No competitive analysis or additional research links were provided in the source input.
+### Assumptions carried from source (Section 14), all unvalidated
+- `[assumption]` Users will provide enough Hiking Profile information to support personalization.
+- `[assumption]` Breaking difficulty into multiple concrete dimensions makes it easier for novices to understand.
+- `[assumption]` Showing Route Fit reasoning increases trust in recommendations.
+- `[assumption]` 3–5 recommended routes balances choice against decision fatigue.
+- `[assumption]` Users want the system to generate a hiking plan after route selection.
+- `[assumption]` External services like Google Maps can supply sufficient transport/trailhead data for MVP.
+- `[assumption]` A Departure Checklist delivers value proportionate to its build cost.
+- `[assumption]` Users will trust and actually follow the system's suggested turnaround time in the field.
+- `[assumption]` A simple Departure Checklist reduces novice gear-forgetting rather than being ignored as UI clutter.
 
----
+### Research sources referenced in source material
+- Interview — Personalized Route Recommendation interview notes
+- Interview — AI Route Recommendation Trust interview notes
+- Interview — Personalized Hiking Plan interview notes
+- Journey Map — route-comparison, weather/condition-check, and final pre-departure stages
 
-## Self-Score (0–40 rubric, per skill instructions)
-
-| Dimension | Score | Why |
-|---|---|---|
-| Problem grounding | 5 / 10 | Problem is user-framed and specific, but has zero cited research or quantified current-state data — Section 4 of the source is entirely unfilled. |
-| Requirement testability | 7 / 10 | P0 requirements and acceptance criteria are concrete and traceable, but several NFRs are boilerplate topics with no thresholds, and some ACs still hinge on unresolved open questions. |
-| Metric rigor | 3 / 10 | Metric *set* is reasonable (covers outcome, adoption, and guardrail), but **no metric has a baseline or target** — this is the PRD's biggest gap. |
-| Scope & risk honesty | 8 / 10 | MVP scope is clearly bounded to P0 items, out-of-scope items are recorded (though unconfirmed), and open questions are extensive — but they carry no owner or deadline yet. |
-
-**Total: 23 / 40** — below the 32+ ship-quality bar. The two biggest levers to close the gap: (1) complete Section 4 research so the problem statement can be quantified, and (2) instrument and baseline the success metrics before the next draft. Both are already logged as open questions above.
+### Related documents
+- Source input: `personalized_hiking_prd_input.md` (this repository)

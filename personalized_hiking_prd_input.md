@@ -46,35 +46,67 @@
 
 ## 4. User Research / Evidence
 
-> **Status: To be completed from user interviews and journey research.**
+> **Status: Completed from user interviews and journey research.**
 
-請補入已完成的使用者訪談、User Journey Map、Customer Journey Map 或其他研究證據。
+本階段已完成兩組使用者訪談，分別聚焦於 **個人化登山路線推薦** 與 **個人化登山規劃書生成**。受訪者設定為「登山新手，不熟悉登山路線知識，但具有登山意願」。研究結果顯示，使用者在路線選擇與行前規劃過程中，主要困難來自於：**難度解讀困難、缺乏個人化判斷、資訊分散且不易轉換成決策**。
 
 ### Suggested Evidence Structure
 
 #### Finding 1 — Route difficulty is hard to interpret
 
-- **Finding:** [待補]
-- **Evidence:** [待補，例如：X/X 位受訪者表示難以判斷「中等難度」是否適合自己]
-- **Source:** [Interview / Journey Map / Analytics]
+* **Finding:**
+  登山新手難以判斷路線難度是否真的適合自己。即使路線被標示為「新手適合」或「簡單」，使用者仍無法理解這些描述對自己的體力、經驗與實際行走感受代表什麼。
+* **Evidence:**
+  受訪者表示，路線難度判斷不準是主要困難之一，因為每個人對「簡單」、「新手可」、「中等難度」的定義不同。使用者也提到，即使知道總距離、預估時間與海拔爬升，仍不容易轉換成「我走起來會不會太累」。
+  受訪者希望事前能知道更具體的困難點，例如：是否階梯很多、是否連續上坡、路面是否濕滑、是否需要拉繩、哪一段最累，以及下山是否會造成膝蓋負擔。
+* **Source:**
+  Interview — 個人化登山路線推薦訪談紀錄
+  Journey Map — 比較路線是否適合自己階段
 
 #### Finding 2 — Users need personalized route selection
 
-- **Finding:** [待補]
-- **Evidence:** [待補]
-- **Source:** [待補]
+* **Finding:**
+  使用者不只需要「熱門路線」或「新手推薦」，而是需要根據自身體力、登山經驗、可接受時間、交通需求與風險承受度，獲得個人化的路線適合度判斷。
+* **Evidence:**
+  受訪者在選定路線時，會考量是否很多新手走過、是否 2–4 小時可完成、交通是否方便、風景是否有吸引力，以及近期路況是否正常。然而，使用者真正想知道的是「我這種新手到底走不走得完」。
+  受訪者也明確表示，會擔心自己的體力不適合某條路線，例如走到一半體力不夠、下山比上山更痛苦、預估時間不準，以及不知道哪裡可以休息或撤退。因此，使用者期待 AI 推薦能包含個人化體力評估、推薦原因、新手適合程度、困難點、替代路線與具體數據支撐。
+* **Source:**
+  Interview — 個人化登山路線推薦訪談紀錄
+  Interview — AI 登山路線推薦信任度相關
+  Journey Map — 決定是否選擇這條路線階段
 
 #### Finding 3 — Planning information is fragmented
 
-- **Finding:** [待補]
-- **Evidence:** [待補]
-- **Source:** [待補]
+* **Finding:**
+  登山行前規劃所需資訊高度分散，使用者需要在多個平台之間查找路線、天氣、路況、交通、裝備、補給與安全資訊，導致行前準備成本高，也降低出發信心。
+* **Evidence:**
+  受訪者表示，路線資訊通常來自部落格、YouTube、Instagram、Google Maps 評論、朋友推薦、登山社團、官方公告與天氣 App。這些資訊分散在不同平台，且內容格式不一致，有些文章年代久遠，使用者不確定現在是否仍適用。
+  在規劃書訪談中，受訪者也提到決定路線後仍需要確認路線資訊、交通方式、近期路況、天氣、裝備補給、地圖截圖、出發時間與回程時間。若天氣、路況、交通、路線方向、時間控制、難度、裝備或應變方式不清楚，使用者就不太敢出發。
+* **Source:**
+  Interview — 個人化登山路線推薦訪談紀錄
+  Interview — 個人化登山規劃書訪談紀錄
+  Journey Map — 蒐集可能的登山路線、確認天氣路況與安全風險、行前最後檢查階段
 
 #### Journey Friction Points
 
-- **Lowest-scoring step:** [待補]
-- **Why it hurts:** [待補]
-- **Related opportunity:** [待補]
+* **Lowest-scoring step:**
+  比較路線是否適合自己 / 做出是否出發的最後決策
+* **Why it hurts:**
+  這兩個階段是使用者最需要做判斷的時刻，但也是資訊最不確定、心理壓力最高的階段。使用者雖然可以查到距離、時間、爬升、照片、評論與天氣資料，但仍難以判斷這些資訊對自己是否代表「可完成」、「偏吃力」或「不建議」。
+  使用者最後缺乏的不是更多資料，而是能把資料轉換成行動決策的判斷，例如：這條路線是否適合我、今天是否適合出發、幾點要折返、要帶多少水、遇到天氣變差或體力不足時該怎麼辦。
+* **Related opportunity:**
+  建立一套「個人化登山決策支援」功能，將分散資訊整合為可執行建議。核心機會包含：
+
+  1. **個人化路線適合度判斷**
+     根據使用者體力、經驗、可接受時間、交通偏好與風險承受度，說明路線是否適合，以及原因。
+  2. **路線難度轉譯**
+     將距離、爬升、坡度、階梯、拉繩、濕滑、曝曬等資料，轉換成新手能理解的實際體感描述。
+  3. **天氣與路況決策化**
+     不只顯示天氣或路況資料，而是直接提供「建議出發 / 建議改期 / 不建議前往」的判斷，並附上資料來源與更新時間。
+  4. **登山規劃書生成**
+     自動整理分段行程、建議出發時間、最晚折返時間、交通與登山口資訊、裝備補給建議、風險應對、緊急資訊與行前 Checklist。
+  5. **出發前自動更新**
+     在規劃書產生後，於出發前重新檢查天氣、近期路況、官方公告、交通狀況、折返時間、裝備建議、風險等級與替代方案，避免使用者依賴過期資訊。
 
 ---
 
@@ -112,17 +144,16 @@
 
 **Description**
 
-將單一抽象的路線難度拆分成較容易理解的多個維度，例如：
+將單一抽象的路線難度拆分成以下 4 個與新手體感與判斷最相關的維度：
 
-- 體力需求
-- 坡度
-- 技術需求
-- 地形風險
-- 其他與新手判斷相關的難度資訊
+1. **體力需求（Stamina）**：基於總距離與總爬升計算的耗能等級（輕鬆散步、微喘排汗、耐力考驗）。
+2. **坡度類型（Steepness）**：如平緩坡度、連續階梯（對膝蓋壓力大）、陡坡直升。
+3. **路面技術要求（Technical Trail）**：是否包含碎石路、泥濘濕滑路段，或需手腳並用（拉繩/攀爬）。
+4. **曝曬程度（Sun Exposure）**：如林蔭蔽天（涼爽舒適）、半曝曬、全程無遮蔭（需注意中暑）。
 
 **User Value**
 
-讓登山新手不只看到「簡單 / 中等 / 困難」，而是理解這條路實際會難在哪裡。
+讓登山新手不只看到「簡單 / 中等 / 困難」，而是能從體感維度理解這條路實際難在哪裡，做為是否前往的評估基礎。
 
 ---
 
@@ -130,18 +161,23 @@
 
 **Description**
 
-蒐集與個人化推薦相關的使用者資訊，包括：
+建立並保存使用者的登山 Profile，區分為必填（核心推薦與安全限制）與選填（個人偏好與微調）欄位：
 
-- 登山經驗
-- 體力狀況
-- 可接受登山時間
-- 交通方式
-- 地形限制
-- 個人偏好
+* **必填欄位（核心推薦與安全限制所需的最少資訊）：**
+  * *可接受登山時間（Duration Budget）*：例如：2 小時內、半天（2–4 小時）、全天（4–8 小時）。
+  * *交通方式（Transportation Mode）*：有車（自駕/機車）或無車（需大眾運輸）。
+  * *體力狀況自我評估（Physical Condition）*：無運動習慣、偶爾慢跑、固定重訓/有氧等，用以估算行走速度。
+* **選填欄位（偏好與進階適配）：**
+  * *登山經驗（Hiking Experience）*：從未登過山、僅走過親山步道、有中級山經驗等。
+  * *地形與技術限制（Terrain/Safety Constraints）*：懼高症、不願拉繩、膝蓋受傷不適合長陡下坡（用於警示或過濾特定路段）。
+  * *景觀偏好（Scenic Preferences）*：森林蔭涼、展望極佳、瀑布溪流、歷史古道。
+* **保存與微調機制：**
+  * 帳戶永久保存使用者設定，減少重複填寫摩擦。
+  * 每次搜尋推薦時自動載入 Profile，並允許在搜尋介面臨時微調（如「今天限 3 小時」），不覆蓋永久基底。
 
 **User Value**
 
-建立個人化推薦與 Route Fit 判斷所需的基礎資料。
+建立個人化推薦與 Route Fit 判斷所需的基礎資料，同時確保新手的上車門檻低。
 
 ---
 
@@ -149,13 +185,13 @@
 
 **Description**
 
-根據 Hiking Profile 與使用者當次需求，推薦 **3–5 條候選路線**。
+根據 Hiking Profile 與使用者當次需求，推薦 **3–5 條精選候選路線**。
+
+* *推薦 3–5 條的考量*：避免過多選項（>5）導致決策癱瘓（Choice Overload）與認知負荷，同時提供適度多樣性（如一條最輕鬆、一條風景最美、一條稍具挑戰）供新手比較。
 
 **User Value**
 
-直接回答使用者最核心的問題：
-
-> 我這次應該去哪裡？
+直接回答使用者最核心的問題：「我這次應該去哪裡？」，並提供無負擔的決策空間。
 
 ---
 
@@ -163,16 +199,16 @@
 
 **Description**
 
-顯示每條候選路線與使用者的適合程度，並說明：
+計算並顯示每條候選路線與使用者的適合程度（Route Fit），結合視覺等級與結構化文字說明：
 
-- 為什麼推薦
-- 哪些條件符合
-- 哪些條件不符合
-- 為什麼可能不推薦
+* **適配度定義**：比對步道特徵與 Profile。分為「硬限制一票否決」（交通不可達、時間超出、難度超出經驗上限即不推薦）與「軟偏好加權評分」（體力、路面類型、景觀）。
+* **呈現方式**：
+  * *視覺等級標籤*：`高度推薦`（符合 Profile 且無安全疑慮）、`適度挑戰`（略微超出體能或有少許挑戰但仍安全可行）、`不建議`（違反安全或硬性限制）。
+  * *結構化文字說明*：列出「適合原因」（如大眾運輸直達）與「需要留意細節」（如階梯較多、曝曬），避免抽象的分數評分。
 
 **User Value**
 
-建立使用者對推薦結果的理解與信任，避免只有結果、沒有理由。
+建立使用者對推薦結果的理解與信任，透過透明的理由轉化為實際出發的信心。
 
 ---
 
@@ -227,16 +263,15 @@ MVP 可先整合 Google Maps 或其他外部地圖 / 交通服務。
 
 **Description**
 
-根據路線與使用者狀況提供建議時間安排，包括：
+根據路線與使用者狀況提供個人化建議時間安排：
 
-- 建議出發時間
-- 抵達重要節點時間
-- 建議休息節點
-- 預計下山時間
+* **速度係數修正（Pace Multiplier）**：基礎路線所需時間乘以使用者的體力修正係數（新手預設為 1.2x ~ 1.5x 官方時間，避免行前估計不準造成壓力）。
+* **安全時間錨定（Sunset Safe Anchor）**：依據當日日落時間，反推並標記「最晚必須折返/下山時間點」，以確保安全。
+* **休息點規劃**：每行走 50-60 分鐘或遇到重要節點時，主動在 Timeline 中插入 10-15 分鐘的休息補給時間。
 
 **User Value**
 
-協助缺乏規劃經驗的新手建立可執行的時間安排。
+協助缺乏規劃經驗的新手建立可執行、有安全裕度的時間安排。
 
 ---
 
@@ -262,16 +297,17 @@ MVP 可先整合 Google Maps 或其他外部地圖 / 交通服務。
 
 **Description**
 
-在出發前提供簡單行前確認，包括：
+在出發前提供精簡核心的 P0 行前確認清單，防止遺漏重要安全準備：
 
-- 裝備
-- 地圖
-- 交通
-- 其他必要行前事項
+* **地圖**：下載 GPX 軌跡並安裝離線地圖 App。
+* **水分與補給**：根據路線與天氣提供具體建議攜帶量（如「建議攜帶至少 1.5L 飲水與 2 份行動糧」）。
+* **裝備**：雨具（必備）、防滑鞋款、備用頭燈（防延誤安全備用）。
+* **確認資訊**：登山口即時天氣、交通班次。
+* **聯絡留守人**：將規劃書分享給一位未同行的緊急聯絡人。
 
 **User Value**
 
-降低因遺漏基本準備而影響登山行程的風險。
+降低因遺漏基本準備而影響安全或行程的風險，提升新手出發前的心理確定性。
 
 ---
 
@@ -293,186 +329,199 @@ MVP 可先整合 Google Maps 或其他外部地圖 / 交通服務。
 
 ---
 
-## 9. User Stories
 
-### US1 — Understand Route Difficulty
+## 9. 使用者故事（User Stories）
 
-As a **beginner hiker**, I want to understand a route's difficulty by specific dimensions, so that I can judge what parts of the route may be challenging for me.
+### US1 — 理解路線難度
 
-### US2 — Build Hiking Profile
+身為一名**登山新手**，我希望能透過具體的難度面向了解一條路線的挑戰程度，讓我可以判斷哪些路段可能對我而言較具挑戰性。
 
-As a **beginner hiker**, I want to describe my hiking experience, physical condition, time constraints, transportation options, terrain restrictions, and preferences, so that recommendations can reflect my actual situation.
+### US2 — 建立登山者 Profile
 
-### US3 — Receive Personalized Recommendations
+身為一名**登山新手**，我希望能描述自己的登山經驗、身體狀況、時間限制、交通方式、地形限制與偏好，讓系統推薦的路線能符合我的實際情況。
 
-As a **beginner hiker**, I want to receive 3–5 routes that match my profile and current needs, so that I do not need to manually evaluate a large number of routes.
+### US3 — 獲得個人化路線推薦
 
-### US4 — Understand Route Fit
+身為一名**登山新手**，我希望能收到 3–5 條符合我的 Profile 與當次需求的路線推薦，讓我不需要自己從大量路線中逐一評估。
 
-As a **beginner hiker**, I want to know why a route is or is not suitable for me, so that I can trust the recommendation and make the final decision myself.
+### US4 — 理解路線適配程度
 
-### US5 — Generate Hiking Plan
+身為一名**登山新手**，我希望知道一條路線為什麼適合或不適合我，讓我能信任推薦結果，並自行做出最終決策。
 
-As a **beginner hiker**, I want to receive a personalized plan after selecting a route, so that I know how to turn the route choice into an executable hiking trip.
+### US5 — 生成登山規劃書
 
-### US6 — Understand Route Timeline
+身為一名**登山新手**，我希望在選定路線後獲得一份個人化登山規劃書，讓我知道如何將路線選擇轉化成可實際執行的登山行程。
 
-As a **beginner hiker**, I want to see the route broken into major segments with distance, time, and difficulty, so that I can understand how the trip will progress.
+### US6 — 理解路線行程時間軸
 
-### US7 — Plan My Time
+身為一名**登山新手**，我希望看到路線被拆分成主要路段，並顯示各路段的距離、時間與難度，讓我能了解整趟登山行程會如何進行。
 
-As a **beginner hiker**, I want recommended departure, checkpoint, and descent times, so that I can organize the trip without having to estimate the entire schedule myself.
+### US7 — 規劃行程時間
 
-### US8 — Prepare Before Departure
+身為一名**登山新手**，我希望獲得建議的出發時間、檢查點時間與下山時間，讓我不需要自行估算整趟行程的時間安排。
 
-As a **beginner hiker**, I want a departure checklist, so that I can confirm essential preparations before leaving.
+### US8 — 出發前準備
 
----
-
-## 10. Success Metrics
-
-> **Status: Baseline and targets not yet defined.**
-
-The following metrics are candidates and should be validated before finalizing the PRD.
-
-### Primary Outcome Metrics
-
-- Percentage of users who successfully select a route after receiving recommendations.
-- Time from beginning route exploration to final route selection.
-- User-reported confidence in answering: **「我知道這條路線是否適合我。」**
-- Percentage of recommended routes that are added to a hiking plan.
-
-### Planning Metrics
-
-- Percentage of selected routes that proceed to Personalized Hiking Plan generation.
-- Percentage of generated plans viewed before departure.
-- Completion / usage rate of Departure Checklist.
-
-### Guardrail Metrics
-
-- Percentage of users who report that Route Fit explanations are misleading or inconsistent.
-- Percentage of recommendations rejected because they violate stated Profile constraints.
-- Percentage of users who need to leave the product to find missing core planning information.
-
-### Baseline
-
-- Current baseline: **Unknown / To be measured**
-
-### Target
-
-- Target values: **To be defined after baseline measurement**
+身為一名**登山新手**，我希望有一份出發前檢查清單，讓我可以在出發前確認必要的準備事項是否完成。
 
 ---
 
-## 11. Non-Functional Requirements
+## 10. 成功指標（Success Metrics）
 
-> **Status: To be defined with Engineering / Product.**
+> **狀態：尚未定義 Baseline 與目標值。**
 
-Topics that require explicit targets:
+以下指標目前僅為候選項目，在正式納入 PRD 前仍需要進一步驗證。
 
-- Performance / loading time
-- Recommendation response time
-- Accessibility
-- Data privacy for Hiking Profile
-- Availability of external map / transportation services
-- Error and fallback behaviour
-- Mobile usability
-- Reliability of route and planning data
+### 主要成果指標（Primary Outcome Metrics）
 
----
+* 使用者收到推薦後，成功選擇一條路線的比例。
+* 使用者從開始探索路線到最終選定路線所需的時間。
+* 使用者對以下敘述的自評信心程度：
+  **「我知道這條路線是否適合我。」**
+* 被推薦的路線中，進一步被加入登山規劃的比例。
 
-## 12. Out of Scope
+### 規劃相關指標（Planning Metrics）
 
-> **Status: Needs confirmation.**
+* 已選定路線中，進一步產生個人化登山規劃書的比例。
+* 已產生的登山規劃書，在出發前被查看的比例。
+* 出發前檢查清單的完成率／使用率。
 
-The following items are not included in the provided MVP feature list and should remain out of scope unless separately approved:
+### 護欄指標（Guardrail Metrics）
 
-- Real-time GPS navigation
-- Emergency rescue / SOS
-- Hiking social network
-- Community posting
-- Equipment marketplace / e-commerce
-- Real-time location sharing
-- Advanced training / fitness tracking
-- Other features not directly required by Find → Plan → Go MVP
+* 使用者認為「路線適配原因（Route Fit）」具有誤導性或前後不一致的比例。
+* 推薦路線因違反使用者已設定的 Profile 條件，而被使用者拒絕的比例。
+* 使用者因缺少核心登山規劃資訊，而必須離開產品到其他平台搜尋資料的比例。
 
----
+### 基準值（Baseline）
 
-## 13. Assumptions
+* 目前基準值：**未知／待量測**
 
-The following are currently **assumptions**, not validated facts:
+### 目標值（Target）
 
-- Users are willing to provide enough Hiking Profile information for personalization.
-- Breaking route difficulty into dimensions will improve new hikers' understanding.
-- Showing Route Fit reasons will increase recommendation trust.
-- Recommending 3–5 routes provides an appropriate balance between choice and decision effort.
-- Users want a generated hiking plan after selecting a route.
-- External services such as Google Maps can provide sufficient transportation / trailhead support for MVP.
-- A Departure Checklist provides meaningful value relative to its implementation cost.
+* 目標值：**待取得 Baseline 後再定義**
 
 ---
 
-## 14. Open Questions
+## 11. 非功能性需求（Non-Functional Requirements）
 
-### Product
+> **狀態：待與 Engineering／Product 共同定義。**
 
-- Which Hiking Profile fields are mandatory vs optional?
-- Should Hiking Profile be persistent, or editable for each trip?
-- What defines Route Fit?
-- Should Route Fit be a score, level, textual explanation, or combination?
-- Why are 3–5 recommendations optimal?
-- Which Route Difficulty dimensions are required for MVP?
-- How personalized should Suggested Time Schedule be?
-- Which items belong in Departure Checklist?
+以下項目需要進一步制定明確的標準與目標值：
 
-### Research
-
-- Which journey step has the highest friction according to interview evidence?
-- Which of the P0 features directly address validated pain points?
-- Which features are based primarily on assumptions?
-- What evidence shows users want recommendation explanations?
-- What evidence shows planning information fragmentation is a significant pain point?
-
-### Data / Technical
-
-- What route data is available for difficulty breakdown?
-- How will slope, terrain, technical difficulty, and risk be calculated or sourced?
-- What data source supplies transportation and trailhead information?
-- What data is required to generate Route Timeline?
-- Is Personalized Route Recommendation rule-based, AI-based, or hybrid?
-- How is Route Fit calculated?
-- What happens when route data is incomplete or conflicting?
+* 效能／頁面載入時間
+* 路線推薦回應時間
+* 無障礙設計（Accessibility）
+* 登山者 Profile 的資料隱私
+* 外部地圖／交通服務的可用性
+* 錯誤處理與替代方案（Fallback Behaviour）
+* 行動裝置使用體驗
+* 路線與登山規劃資料的可靠性
 
 ---
 
-## 15. Stakeholders
+## 12. 技術與資料考量（Technical & Data Considerations）
 
-> **Status: To be completed.**
+### 資料來源（Data Sources）
+* **難度拆解與特徵標籤**：
+  * 政府公開資料（林業署、縣市政府 Open Data）提供步道里程與高度基底。
+  * 社群 GPX 軌跡分析海拔變化與平均步行速度。
+  * 社群文本（Google Maps 評論、健行筆記心得）利用 LLM/NLP 提取地形特徵關鍵字（如「拉繩」、「碎石」、「階梯」）。
+* **交通與登山口資訊**：
+  * 大眾運輸：介接交通部 TDX 平台或 Google Directions API。
+  * 登山口位置：政府步道 Open Data 或 OpenStreetMap (OSM) 節點。
+  * 停車資訊：Google Maps Place API 搜尋並分析評論。
+* **風險與即時天氣**：
+  * 中央氣象署即時天氣預報 API、水保署土石流警戒資訊、林務步道封閉公告 API。
 
-Suggested stakeholder categories:
+### 個人化推薦與適配模型
+* **推薦模式（Hybrid 模式）**：
+  * *第一階段（規則過濾）*：依據交通偏好、預算時間與安全難度門檻進行 SQL/規則式硬性過濾。
+  * *第二階段（適配度排序與生成）*：計算剩餘步道與 Profile 的適配分數進行排序，並利用 LLM 讀取步道特徵與 Profile，自動生成溫暖易讀的個人化推薦理由（Route Fit 文字說明）。
+* **Route Fit 計算模型**：
+  * 採加權評分（時間適配、體力適配、交通適配、偏好適配綜合得分）。
+  * 設有**一票否決機制**（如難度超出等級 2 階以上，直接歸類為「不建議」）。
+* **Route Timeline 時間估算**：
+  * 基於 Naismith's Rule 速度模型，並乘以使用者 Profile 的速度修正係數（Pace Multiplier）。
 
-- Product Manager
-- Product / UX Designer
-- Frontend Engineer
-- Backend Engineer
-- Data / AI Engineer, if recommendation uses AI or ML
-- Domain expert / hiking safety reviewer
-- Business stakeholder
-- Legal / Privacy reviewer, if required
+### 資料衝突與保守原則
+* **信任層級（Hierarchy of Trust）**：官方安全/封閉公告 > 專業 GPX 社群當週路況 > 歷史預設資料 > 一般遊記/部落格。
+* **保守傾向（Conservative Fallback）**：若天氣或路況數據衝突，系統一律採用最保守的安全警示。在規劃書上標註「資料更新時間」以提示資訊時效落差。
 
 ---
 
-## 16. PRD Generation Instruction
+## 13. 不在本次範圍內（Out of Scope）
 
-Use the information above to generate a PRD following the **PRD Template Skill**.
+> **狀態：需要進一步確認。**
 
-Requirements:
+以下功能目前並未包含在已提供的 MVP 功能清單中。除非另外經過確認與核准，否則應維持在本次 MVP 範圍之外：
 
-1. Keep the problem statement user-centered and solution-neutral.
-2. Trace every P0 requirement back to a user problem, research finding, or clearly labeled assumption.
-3. Do not invent research evidence, baselines, success targets, or technical constraints.
-4. Clearly label unsupported claims as `[assumption]` or `[hunch]`.
-5. Separate MVP scope from future enhancements.
-6. Include acceptance criteria for each primary user story.
-7. Surface unresolved questions explicitly rather than silently deciding them.
-8. Do not convert implementation assumptions into settled product requirements.
+* 即時 GPS 導航
+* 緊急救援／SOS
+* 登山社群網路
+* 社群貼文功能
+* 裝備商城／電子商務
+* 即時位置分享
+* 進階訓練／體能追蹤
+* 其他並非「Find → Plan → Go」MVP 所直接需要的功能
+
+---
+
+## 14. 假設（Assumptions）
+
+以下內容目前皆屬於**假設**，尚未經過研究或數據驗證：
+
+* `[assumption]` 使用者願意提供足夠的登山者 Profile 資訊，以支援個人化推薦。
+* `[assumption]` 將路線難度拆分為多個具體面向，可以幫助登山新手更容易理解路線難度。
+* `[assumption]` 顯示 Route Fit 的適配原因，可以提升使用者對推薦結果的信任。
+* `[assumption]` 推薦 3–5 條路線，可以在選擇自由度與決策負擔之間取得適當平衡。
+* `[assumption]` 使用者在選定路線後，希望系統協助產生登山規劃書。
+* `[assumption]` Google Maps 等外部服務能夠為 MVP 提供足夠的交通與登山口資訊。
+* `[assumption]` 相較於實作成本，出發前檢查清單能為使用者帶來足夠的實際價值。
+* `[assumption]` 使用者會主動且信任系統建議的「折返點時間」，並在實際登山時執行。
+* `[assumption]` 提供一個簡單的 Departure Checklist 確實能降低新手遺忘裝備的機率，而非淪為被忽視的 UI。
+
+---
+
+## 15. 待釐清問題（Open Questions）
+
+> **狀態：已釐清。**
+>
+> 本階段所有關於 MVP 的產品定義、研究證據與技術可行性之釐清問題，皆已定義並併入對應的 MVP Scope、技術與資料考量章節中。後續執行若有新議題，將在此章節持續記錄。
+
+---
+
+## 16. 利害關係人（Stakeholders）
+
+> **狀態：待補充完成。**
+
+建議納入的 Stakeholder 類型：
+
+* 產品經理（Product Manager）
+* 產品設計師／UX Designer
+* 前端工程師（Frontend Engineer）
+* 後端工程師（Backend Engineer）
+* Data／AI Engineer（若推薦功能使用 AI 或 Machine Learning）
+* 登山領域專家／登山安全審查人員
+* Business Stakeholder
+* 法務／隱私審查人員（如有需要）
+
+---
+
+## 17. PRD 產生指令（PRD Generation Instruction）
+
+請使用上述資訊，並依照 **PRD Template Skill** 產生完整 PRD。
+
+要求如下：
+
+1. 保持 Problem Statement 以**使用者問題為中心**，並維持**解決方案中立（solution-neutral）**，不要在問題定義階段直接預設具體功能。
+2. 每一項 P0 Requirement 都必須能追溯至：
+
+   * 使用者問題；
+   * 研究發現；
+   * 或明確標示的假設。
+3. 不得自行杜撰研究證據、Baseline、成功指標目標值或技術限制。
+4. 所有缺乏證據支持的敘述，必須清楚標示為 `[assumption]` 或 `[hunch]`。
+5. 明確區分 **MVP Scope** 與 **Future Enhancements**。
+6. 每一個主要 User Story 都必須包含對應的 **Acceptance Criteria（驗收條件）**。
+7. 所有尚未解決的問題必須明確列出，不得在沒有證據的情況下自行替產品做決定。
+8. 不得將實作層面的假設直接轉換成已確定的產品需求。
