@@ -1,434 +1,483 @@
 @command
-Feature: ä½¿ç”¨è€…é€é Google ç™»å…¥/è¨»å†Š # tests/features/auth/ä½¿ç”¨è€…é€éGoogleç™»å…¥.feature:2
+Feature: ¨Ï¥ÎªÌ³z¹L Google µn¤J/µù¥U # tests/features/auth/¨Ï¥ÎªÌ³z¹LGoogleµn¤J.feature:2
 
-    Example: æ–°ä½¿ç”¨è€…é¦–æ¬¡ç™»å…¥æ™‚å»ºç«‹å¸³è™Ÿä¸¦å°å‘å•å·                                # tests/features/auth/ä½¿ç”¨è€…é€éGoogleç™»å…¥.feature:8
-      When ä½¿ç”¨è€…ä»¥ Google å¸³è™Ÿç™»å…¥ï¼š                                   # tests/features/steps/auth/commands/google_login.py:4
+    Example: ·s¨Ï¥ÎªÌ­º¦¸µn¤J®É«Ø¥ß±b¸¹¨Ã¾É¦V°İ¨÷                                # tests/features/auth/¨Ï¥ÎªÌ³z¹LGoogleµn¤J.feature:8
+      When ¨Ï¥ÎªÌ¥H Google ±b¸¹µn¤J¡G                                   # tests/features/steps/auth/commands/google_login.py:6
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      Then æ“ä½œæˆåŠŸ                                                # tests/features/steps/common_then/success.py:4
-      And å›æ‡‰æ‡‰åŒ…å« is_new_user ç‚º trueï¼Œnext_step ç‚º "questionnaire" # tests/features/steps/auth/readmodel_then/google_login_new_user.py:4
+      Then ¾Ş§@¦¨¥\                                                # tests/features/steps/common_then/success.py:4
+      And ¦^À³À³¥]§t is_new_user ¬° true¡Anext_step ¬° "questionnaire" # tests/features/steps/auth/readmodel_then/google_login_new_user.py:4
 
-    Example: æ—¢æœ‰ä½¿ç”¨è€…ç™»å…¥æ™‚ä¸é‡è¤‡å»ºç«‹å¸³è™Ÿ        # tests/features/auth/ä½¿ç”¨è€…é€éGoogleç™»å…¥.feature:16
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š              # tests/features/steps/common_given/users.py:9
+    Example: ¬J¦³¨Ï¥ÎªÌµn¤J®É¤£­«½Æ«Ø¥ß±b¸¹        # tests/features/auth/¨Ï¥ÎªÌ³z¹LGoogleµn¤J.feature:16
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G              # tests/features/steps/common_given/users.py:9
         | google_id | email           | name |
         | g-002     | bob@example.com | Bob  |
-      When ä½¿ç”¨è€…ä»¥ Google å¸³è™Ÿç™»å…¥ï¼š        # tests/features/steps/auth/commands/google_login.py:4
+      When ¨Ï¥ÎªÌ¥H Google ±b¸¹µn¤J¡G        # tests/features/steps/auth/commands/google_login.py:6
         | google_id | email           | name |
         | g-002     | bob@example.com | Bob  |
-      Then æ“ä½œæˆåŠŸ                     # tests/features/steps/common_then/success.py:4
-      And å›æ‡‰æ‡‰åŒ…å« is_new_user ç‚º false # tests/features/steps/auth/readmodel_then/google_login_existing_user.py:4
+      Then ¾Ş§@¦¨¥\                     # tests/features/steps/common_then/success.py:4
+      And ¦^À³À³¥]§t is_new_user ¬° false # tests/features/steps/auth/readmodel_then/google_login_existing_user.py:4
 
 @command
-Feature: ç”Ÿæˆç™»å±±è¦åŠƒæ›¸ # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:2
+Feature: ¥Í¦¨µn¤s³W¹º®Ñ # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:2
 
   @command
-  Feature: ç”Ÿæˆç™»å±±è¦åŠƒæ›¸  # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:2
+  Feature: ¥Í¦¨µn¤s³W¹º®Ñ  # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:2
 
-  Rule: å‰ç½®ï¼ˆç‹€æ…‹ï¼‰- ä½¿ç”¨è€…å¿…é ˆå¾æ¨è–¦çµæœä¸­é¸å®šä¸€æ¢è·¯ç·š  # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:7
+  Rule: «e¸m¡]ª¬ºA¡^- ¨Ï¥ÎªÌ¥²¶·±q±ÀÂËµ²ªG¤¤¿ï©w¤@±ø¸ô½u  # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:7
 
-    Example: æœªæŒ‡å®šè·¯ç·šæ™‚æ“ä½œå¤±æ•—                               # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:8
-      Given ä½¿ç”¨è€…å·²å–å¾—è·¯ç·šæ¨è–¦çµæœ                              # tests/features/steps/plan/aggregate_given/recommendation_result.py:13
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                # tests/features/steps/common_given/users.py:9
+    Example: ¥¼«ü©w¸ô½u®É¾Ş§@¥¢±Ñ                               # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:8
+      Given ¨Ï¥ÎªÌ¤w¨ú±o¸ô½u±ÀÂËµ²ªG                              # tests/features/steps/plan/aggregate_given/recommendation_result.py:13
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å–å¾—ä»¥ä¸‹è·¯ç·šæ¨è–¦çµæœï¼š                    # tests/features/steps/plan/aggregate_given/recommendation_result.py:19
+      And ¨Ï¥ÎªÌ "Alice" ¤w¨ú±o¥H¤U¸ô½u±ÀÂËµ²ªG¡G                    # tests/features/steps/plan/aggregate_given/recommendation_result.py:19
         | route_id | name |
-        | R1       | è·¯ç·šä¸€  |
-        | R2       | è·¯ç·šäºŒ  |
-      When ä½¿ç”¨è€… "Alice" é¸å®šè·¯ç·š "" ç”Ÿæˆç™»å±±è¦åŠƒæ›¸                # tests/features/steps/plan/commands/generate_plan.py:13
-      Then æ“ä½œå¤±æ•—ï¼Œviolation_type ç‚º "ROUTE_NOT_SELECTED" # tests/features/steps/common_then/failure.py:4
+        | R1       | ¸ô½u¤@  |
+        | R2       | ¸ô½u¤G  |
+      When ¨Ï¥ÎªÌ "Alice" ¿ï©w¸ô½u "" ¥Í¦¨µn¤s³W¹º®Ñ                # tests/features/steps/plan/commands/generate_plan.py:13
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "ROUTE_NOT_SELECTED" # tests/features/steps/common_then/failure.py:4
 
-    Example: é¸å®šéæ¨è–¦çµæœä¸­çš„è·¯ç·šæ™‚æ“ä½œå¤±æ•—                                  # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:19
-      Given ä½¿ç”¨è€…å·²å–å¾—è·¯ç·šæ¨è–¦çµæœ                                       # tests/features/steps/plan/aggregate_given/recommendation_result.py:13
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                         # tests/features/steps/common_given/users.py:9
+    Example: ¿ï©w«D±ÀÂËµ²ªG¤¤ªº¸ô½u®É¾Ş§@¥¢±Ñ                                  # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:19
+      Given ¨Ï¥ÎªÌ¤w¨ú±o¸ô½u±ÀÂËµ²ªG                                       # tests/features/steps/plan/aggregate_given/recommendation_result.py:13
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                         # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å–å¾—ä»¥ä¸‹è·¯ç·šæ¨è–¦çµæœï¼š                             # tests/features/steps/plan/aggregate_given/recommendation_result.py:19
+      And ¨Ï¥ÎªÌ "Alice" ¤w¨ú±o¥H¤U¸ô½u±ÀÂËµ²ªG¡G                             # tests/features/steps/plan/aggregate_given/recommendation_result.py:19
         | route_id | name |
-        | R1       | è·¯ç·šä¸€  |
-        | R2       | è·¯ç·šäºŒ  |
-      When ä½¿ç”¨è€… "Alice" é¸å®šè·¯ç·š "R99" ç”Ÿæˆç™»å±±è¦åŠƒæ›¸                      # tests/features/steps/plan/commands/generate_plan.py:13
-      Then æ“ä½œå¤±æ•—ï¼Œviolation_type ç‚º "ROUTE_NOT_IN_RECOMMENDATION" # tests/features/steps/common_then/failure.py:4
+        | R1       | ¸ô½u¤@  |
+        | R2       | ¸ô½u¤G  |
+      When ¨Ï¥ÎªÌ "Alice" ¿ï©w¸ô½u "R99" ¥Í¦¨µn¤s³W¹º®Ñ                      # tests/features/steps/plan/commands/generate_plan.py:13
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "ROUTE_NOT_IN_RECOMMENDATION" # tests/features/steps/common_then/failure.py:4
 
-  Rule: å¾Œç½®ï¼ˆå›æ‡‰ï¼‰- ç³»çµ±ä¾ã€Œå€‹äººæ¢ä»¶ + æ¨è–¦çµæœ + å…¬é–‹è³‡æ–™ã€ç”Ÿæˆç™»å±±è¦åŠƒæ›¸  # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:30
+  Rule: «á¸m¡]¦^À³¡^- ¨t²Î¨Ì¡u­Ó¤H±ø¥ó + ±ÀÂËµ²ªG + ¤½¶}¸ê®Æ¡v¥Í¦¨µn¤s³W¹º®Ñ  # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:30
 
-    Example: é¸å®šæ¨è–¦çµæœä¸­çš„è·¯ç·šæˆåŠŸç”Ÿæˆè¦åŠƒæ›¸           # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:31
-      Given ä½¿ç”¨è€…å·²å–å¾—è·¯ç·šæ¨è–¦çµæœ                 # tests/features/steps/plan/aggregate_given/recommendation_result.py:13
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                   # tests/features/steps/common_given/users.py:9
+    Example: ¿ï©w±ÀÂËµ²ªG¤¤ªº¸ô½u¦¨¥\¥Í¦¨³W¹º®Ñ           # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:31
+      Given ¨Ï¥ÎªÌ¤w¨ú±o¸ô½u±ÀÂËµ²ªG                 # tests/features/steps/plan/aggregate_given/recommendation_result.py:13
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                   # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å–å¾—ä»¥ä¸‹è·¯ç·šæ¨è–¦çµæœï¼š       # tests/features/steps/plan/aggregate_given/recommendation_result.py:19
+      And ¨Ï¥ÎªÌ "Alice" ¤w¨ú±o¥H¤U¸ô½u±ÀÂËµ²ªG¡G       # tests/features/steps/plan/aggregate_given/recommendation_result.py:19
         | route_id | name |
-        | R1       | è·¯ç·šä¸€  |
-        | R2       | è·¯ç·šäºŒ  |
-      When ä½¿ç”¨è€… "Alice" é¸å®šè·¯ç·š "R1" ç”Ÿæˆç™»å±±è¦åŠƒæ›¸ # tests/features/steps/plan/commands/generate_plan.py:13
-      Then æ“ä½œæˆåŠŸ                          # tests/features/steps/common_then/success.py:4
-      And è¦åŠƒæ›¸æ‡‰åŒ…å«ä»¥ä¸‹å€å¡Šï¼š                    # tests/features/steps/plan/readmodel_then/plan_sections.py:4
+        | R1       | ¸ô½u¤@  |
+        | R2       | ¸ô½u¤G  |
+      When ¨Ï¥ÎªÌ "Alice" ¿ï©w¸ô½u "R1" ¥Í¦¨µn¤s³W¹º®Ñ # tests/features/steps/plan/commands/generate_plan.py:13
+      Then ¾Ş§@¦¨¥\                          # tests/features/steps/common_then/success.py:4
+      And ³W¹º®ÑÀ³¥]§t¥H¤U°Ï¶ô¡G                    # tests/features/steps/plan/readmodel_then/plan_sections.py:4
         | section_order | section_name    |
-        | 1             | è·¯ç·šæ‘˜è¦            |
-        | 2             | åˆ†æ®µè¡Œç¨‹            |
-        | 3             | å¤©æ°£è·¯æ³            |
-        | 4             | é¢¨éšªæ‡‰å°            |
-        | 5             | è£å‚™è£œçµ¦            |
-        | 6             | äº¤é€šè³‡è¨Š            |
-        | 7             | ç·Šæ€¥æ‡‰è®Šï¼ˆæ’¤é€€æ¢ä»¶ã€æ›¿ä»£æ–¹æ¡ˆï¼‰ |
-        | 8             | è¡Œå‰ Checklist    |
-      And è¦åŠƒæ›¸æ‡‰æä¾›å¯ä¸‹è¼‰çš„ PDF é€£çµ              # tests/features/steps/plan/readmodel_then/pdf_link.py:4
+        | 1             | ¸ô½uºK­n            |
+        | 2             | ¤À¬q¦æµ{            |
+        | 3             | ¤Ñ®ğ¸ôªp            |
+        | 4             | ­·ÀIÀ³¹ï            |
+        | 5             | ¸Ë³Æ¸Éµ¹            |
+        | 6             | ¥æ³q¸ê°T            |
+        | 7             | ºò«æÀ³ÅÜ¡]ºM°h±ø¥ó¡B´À¥N¤è®×¡^ |
+        | 8             | ¦æ«e Checklist    |
+      And ³W¹º®ÑÀ³´£¨Ñ¥i¤U¸üªº PDF ³sµ²              # tests/features/steps/plan/readmodel_then/pdf_link.py:4
 
-  Rule: å¾Œç½®ï¼ˆå›æ‡‰ï¼‰- è¦åŠƒæ›¸é ˆåŒ…å«ä»¥ä¸‹å€å¡Šï¼š  # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:53
+  Rule: «á¸m¡]¦^À³¡^- ³W¹º®Ñ¶·¥]§t¥H¤U°Ï¶ô¡G  # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:53
 
-  Rule: å¾Œç½®ï¼ˆå›æ‡‰ï¼‰- è¦åŠƒæ›¸ä»¥å¯ä¸‹è¼‰çš„ PDF å½¢å¼å‘ˆç¾  # tests/features/plan/ç”Ÿæˆç™»å±±è¦åŠƒæ›¸.feature:65
+  Rule: «á¸m¡]¦^À³¡^- ³W¹º®Ñ¥H¥i¤U¸üªº PDF §Î¦¡§e²{  # tests/features/plan/¥Í¦¨µn¤s³W¹º®Ñ.feature:65
 
 @command
-Feature: å¡«å¯«/æ›´æ–°å€‹äººæ¢ä»¶å•å· # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:2
+Feature: ¶ñ¼g/§ó·s­Ó¤H±ø¥ó°İ¨÷ # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:2
 
   @command
-  Feature: å¡«å¯«/æ›´æ–°å€‹äººæ¢ä»¶å•å·  # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:2
+  Feature: ¶ñ¼g/§ó·s­Ó¤H±ø¥ó°İ¨÷  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:2
 
-  Rule: å‰ç½®ï¼ˆç‹€æ…‹ï¼‰- ä½¿ç”¨è€…å¿…é ˆå·²å®Œæˆ Google ç™»å…¥  # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:19
+  Rule: «e¸m¡]ª¬ºA¡^- ¨Ï¥ÎªÌ¥²¶·¤w§¹¦¨ Google µn¤J  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:20
 
-    Example: æœªç™»å…¥æ™‚æäº¤å•å·æ“ä½œå¤±æ•—                          # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:20
-      Given å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                          # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      When ä½¿ç”¨è€… "Alice" æäº¤å•å·å›ç­”ï¼š                     # tests/features/steps/profile/commands/submit_questionnaire.py:4
-        | question_code | answer_value        |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±            |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      Then æ“ä½œå¤±æ•—ï¼Œviolation_type ç‚º "UNAUTHENTICATED" # tests/features/steps/common_then/failure.py:4
+    Example: ¥¼µn¤J®É´£¥æ°İ¨÷¾Ş§@¥¢±Ñ                          # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:21
+      Given ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                          # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      When ¨Ï¥ÎªÌ "Alice" ´£¥æ°İ¨÷¦^µª¡G                     # tests/features/steps/profile/commands/submit_questionnaire.py:4
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-6                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "UNAUTHENTICATED" # tests/features/steps/common_then/failure.py:4
 
-  Rule: å‰ç½®ï¼ˆåƒæ•¸ï¼‰- Q1ã€Q2ã€Q3ã€Q4ã€Q5ã€Q11 ç‚ºå¿…ç­”é¡Œï¼ŒQ6-Q10 å¯é¸æ“‡ä¸å›ç­”  # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:31
+  Rule: «e¸m¡]°Ñ¼Æ¡^- Q1¡BQ2¡BQ2B¡BQ3¡BQ4¡BQ5¡BQ11 ¬°¥²µªÃD¡AQ6-Q10 ¥i¿ï¾Ü¤£¦^µª  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:33
 
-    Example: å¿…ç­”é¡Œå…¨éƒ¨å¡«å¯«ã€é¸å¡«é¡Œç•¥éæ™‚æ“ä½œæˆåŠŸ  # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:32
-      Given å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š        # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š           # tests/features/steps/common_given/users.py:9
+    Example: ¥²µªÃD¥ş³¡¶ñ¼g¡B¿ï¶ñÃD²¤¹L®É¾Ş§@¦¨¥\  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:34
+      Given ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G        # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G           # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      When ä½¿ç”¨è€… "Alice" æäº¤å•å·å›ç­”ï¼š   # tests/features/steps/profile/commands/submit_questionnaire.py:4
-        | question_code | answer_value        |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±            |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      Then æ“ä½œæˆåŠŸ                  # tests/features/steps/common_then/success.py:4
+      When ¨Ï¥ÎªÌ "Alice" ´£¥æ°İ¨÷¦^µª¡G   # tests/features/steps/profile/commands/submit_questionnaire.py:4
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-6                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      Then ¾Ş§@¦¨¥\                  # tests/features/steps/common_then/success.py:4
 
-  Rule: å‰ç½®ï¼ˆåƒæ•¸ï¼‰- å¿…ç­”é¡Œæœªå¡«å¯«æ™‚ï¼Œæ“ä½œå¤±æ•—  # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:46
+  Rule: «e¸m¡]°Ñ¼Æ¡^- ¥²µªÃD¥¼¶ñ¼g®É¡A¾Ş§@¥¢±Ñ  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:49
 
-    Example: å¿…ç­”é¡Œç¼ºæ¼æ™‚æ“ä½œå¤±æ•—                                    # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:47
-      Given å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                     # tests/features/steps/common_given/users.py:9
+    Example: ¥²µªÃD¯Êº|®É¾Ş§@¥¢±Ñ                                    # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:50
+      Given ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                     # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      When ä½¿ç”¨è€… "Alice" æäº¤å•å·å›ç­”ï¼š                             # tests/features/steps/profile/commands/submit_questionnaire.py:4
-        | question_code | answer_value   |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±       |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬† |
-        | Q3            | 6-8 å°æ™‚         |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª     |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³        |
-      Then æ“ä½œå¤±æ•—ï¼Œviolation_type ç‚º "MISSING_REQUIRED_ANSWER" # tests/features/steps/common_then/failure.py:4
-
-  Rule: å¾Œç½®ï¼ˆç‹€æ…‹ï¼‰- ä½¿ç”¨è€…æ–¼æ¯æ¬¡è«‹æ±‚è·¯ç·šæ¨è–¦å‰ï¼Œå¯é¸æ“‡æ˜¯å¦æ›´æ–°å•å·ç­”æ¡ˆ  # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:60
-
-    Example: å†æ¬¡æäº¤è¦†è“‹æ—¢æœ‰ç­”æ¡ˆ                        # tests/features/profile/å¡«å¯«å€‹äººæ¢ä»¶å•å·.feature:61
-      Given å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                      # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                         # tests/features/steps/common_given/users.py:9
-        | google_id | email             | name  |
-        | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å›ç­”å•å·ï¼š                   # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
-        | question_code | answer_value        |
-        | Q1            | ç´„æ¯æœˆ1æ¬¡               |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      When ä½¿ç”¨è€… "Alice" æäº¤å•å·å›ç­”ï¼š                 # tests/features/steps/profile/commands/submit_questionnaire.py:4
+      When ¨Ï¥ÎªÌ "Alice" ´£¥æ°İ¨÷¦^µª¡G                             # tests/features/steps/profile/commands/submit_questionnaire.py:4
         | question_code | answer_value |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±     |
-      Then æ“ä½œæˆåŠŸ                                # tests/features/steps/common_then/success.py:4
-      And ä½¿ç”¨è€… "Alice" çš„å•å·å›ç­” "Q1" æ‡‰ç‚º "å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±" # tests/features/steps/profile/aggregate_then/questionnaire_answer_value.py:11
+        | Q1            | Q1-6         |
+        | Q2            | ­¥¤s¤@¤é°·¦æ       |
+        | Q2B           | Q2B-2        |
+        | Q3            | Q3-4         |
+        | Q4            | Q4-7,Q4-9    |
+        | Q11           | Q11-1        |
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "MISSING_REQUIRED_ANSWER" # tests/features/steps/common_then/failure.py:4
+
+  Rule: «e¸m¡]°Ñ¼Æ¡^- ¿ï¶µ«¬ÃD¥Øªºµª®×¥²¶·¬OÃD¥Ø©w¸qªº¿ï¶µ¥N½X  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:64
+
+    Example: ´£¥æ¤£¦s¦bªº¿ï¶µ¥N½X®É¾Ş§@¥¢±Ñ                           # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:65
+      Given ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                              # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                 # tests/features/steps/common_given/users.py:9
+        | google_id | email             | name  |
+        | g-001     | alice@example.com | Alice |
+      When ¨Ï¥ÎªÌ "Alice" ´£¥æ°İ¨÷¦^µª¡G                         # tests/features/steps/profile/commands/submit_questionnaire.py:4
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-99                                                                                 |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "INVALID_OPTION_CODE" # tests/features/steps/common_then/failure.py:4
+
+  Rule: «á¸m¡]ª¬ºA¡^- ¨Ï¥ÎªÌ©ó¨C¦¸½Ğ¨D¸ô½u±ÀÂË«e¡A¥i¿ï¾Ü¬O§_§ó·s°İ¨÷µª®×  # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:80
+
+    Example: ¦A¦¸´£¥æÂĞ»\¬J¦³µª®×                    # tests/features/profile/¶ñ¼g­Ó¤H±ø¥ó°İ¨÷.feature:81
+      Given ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                     # tests/features/steps/common_given/users.py:9
+        | google_id | email             | name  |
+        | g-001     | alice@example.com | Alice |
+      And ¨Ï¥ÎªÌ "Alice" ¤w¦^µª°İ¨÷¡G               # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-4                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      When ¨Ï¥ÎªÌ "Alice" ´£¥æ°İ¨÷¦^µª¡G             # tests/features/steps/profile/commands/submit_questionnaire.py:4
+        | question_code | answer_value |
+        | Q1            | Q1-6         |
+      Then ¾Ş§@¦¨¥\                            # tests/features/steps/common_then/success.py:4
+      And ¨Ï¥ÎªÌ "Alice" ªº°İ¨÷¦^µª "Q1" À³¬° "Q1-6" # tests/features/steps/profile/aggregate_then/questionnaire_answer_value.py:11
 
 @command
-Feature: è«‹æ±‚è·¯ç·šæ¨è–¦ # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:2
+Feature: ½Ğ¨D¸ô½u±ÀÂË # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:2
 
   @command
-  Feature: è«‹æ±‚è·¯ç·šæ¨è–¦  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:2
+  Feature: ½Ğ¨D¸ô½u±ÀÂË  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:2
 
-  Rule: å‰ç½®ï¼ˆç‹€æ…‹ï¼‰- ä½¿ç”¨è€…å¿…é ˆå·²å®Œæˆ Google ç™»å…¥  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:25
+  Rule: «e¸m¡]ª¬ºA¡^- ¨Ï¥ÎªÌ¥²¶·¤w§¹¦¨ Google µn¤J  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:26
 
-    Example: æœªç™»å…¥æ™‚è«‹æ±‚æ¨è–¦æ“ä½œå¤±æ•—                                # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:26
-      Given ç³»çµ±å·²å»ºç«‹è·¯ç·šçŸ¥è­˜åº«ï¼ˆå«è·¯ç·šåŸºç¤è³‡æ–™ã€å³æ™‚é–‹æ”¾ç‹€æ…‹ã€ç•¶æ—¥å¤©æ°£é å ±ï¼‰ï¼Œä¾› RAG æª¢ç´¢ä½¿ç”¨ # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
-      And å€™é¸çŸ¥è­˜åº«è³‡æ–™ä¾†æºåŒ…å«ï¼š                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
-        | è³‡æ–™é¡å‹      | å€™é¸ä¾†æº                     |
-        | å¤©æ°£é å ±      | ä¸­å¤®æ°£è±¡ç½²æ°£è±¡è³‡æ–™é–‹æ”¾å¹³è‡ºï¼ˆé„‰é®/å±±å€å¤©æ°£é å ±ï¼‰ |
-        | æ­¥é“å³æ™‚é–‹æ”¾ç‹€æ…‹  | æ—æ¥­åŠè‡ªç„¶ä¿è‚²ç½²å°ç£å±±æ—æ‚ éŠç¶²é–‹æ”¾è³‡æ–™      |
-        | æ­¥é“/æ™¯é»åŸºç¤è³‡æ–™ | æ”¿åºœè³‡æ–™é–‹æ”¾å¹³è‡º                 |
-      And å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      When ä½¿ç”¨è€… "Alice" è«‹æ±‚è·¯ç·šæ¨è–¦                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      Then æ“ä½œå¤±æ•—ï¼Œviolation_type ç‚º "UNAUTHENTICATED"       # tests/features/steps/common_then/failure.py:4
+    Example: ¥¼µn¤J®É½Ğ¨D±ÀÂË¾Ş§@¥¢±Ñ                                # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:27
+      Given ¨t²Î¤w«Ø¥ß¸ô½uª¾ÃÑ®w¡]§t¸ô½u°òÂ¦¸ê®Æ¡B§Y®É¶}©ñª¬ºA¡B·í¤é¤Ñ®ğ¹w³ø¡^¡A¨Ñ RAG ÀË¯Á¨Ï¥Î # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
+      And ­Ô¿ïª¾ÃÑ®w¸ê®Æ¨Ó·½¥]§t¡G                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
+        | ¸ê®ÆÃş«¬      | ­Ô¿ï¨Ó·½                     |
+        | ¤Ñ®ğ¹w³ø      | ¤¤¥¡®ğ¶H¸p®ğ¶H¸ê®Æ¶}©ñ¥­»O¡]¶mÂí/¤s°Ï¤Ñ®ğ¹w³ø¡^ |
+        | ¨B¹D§Y®É¶}©ñª¬ºA  | ªL·~¤Î¦ÛµM«O¨|¸p¥xÆW¤sªL±y¹Cºô¶}©ñ¸ê®Æ      |
+        | ¨B¹D/´ºÂI°òÂ¦¸ê®Æ | ¬F©²¸ê®Æ¶}©ñ¥­»O                 |
+      And ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      When ¨Ï¥ÎªÌ "Alice" ½Ğ¨D¸ô½u±ÀÂË                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "UNAUTHENTICATED"       # tests/features/steps/common_then/failure.py:4
 
-  Rule: å‰ç½®ï¼ˆç‹€æ…‹ï¼‰- ä½¿ç”¨è€…å¿…é ˆå·²å®Œæˆå€‹äººæ¢ä»¶å•å·çš„å¿…ç­”é¡Œé …ï¼ˆQ1ã€Q2ã€Q3ã€Q4ã€Q5ã€Q11ï¼‰  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:30
+  Rule: «e¸m¡]ª¬ºA¡^- ¨Ï¥ÎªÌ¥²¶·¤w§¹¦¨­Ó¤H±ø¥ó°İ¨÷ªº¥²µªÃD¶µ¡]Q1¡BQ2¡BQ2B¡BQ3¡BQ4¡BQ5¡BQ11¡^  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:31
 
-    Example: å•å·æœªå®Œæˆæ™‚è«‹æ±‚æ¨è–¦æ“ä½œå¤±æ•—                              # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:31
-      Given ç³»çµ±å·²å»ºç«‹è·¯ç·šçŸ¥è­˜åº«ï¼ˆå«è·¯ç·šåŸºç¤è³‡æ–™ã€å³æ™‚é–‹æ”¾ç‹€æ…‹ã€ç•¶æ—¥å¤©æ°£é å ±ï¼‰ï¼Œä¾› RAG æª¢ç´¢ä½¿ç”¨ # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
-      And å€™é¸çŸ¥è­˜åº«è³‡æ–™ä¾†æºåŒ…å«ï¼š                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
-        | è³‡æ–™é¡å‹      | å€™é¸ä¾†æº                     |
-        | å¤©æ°£é å ±      | ä¸­å¤®æ°£è±¡ç½²æ°£è±¡è³‡æ–™é–‹æ”¾å¹³è‡ºï¼ˆé„‰é®/å±±å€å¤©æ°£é å ±ï¼‰ |
-        | æ­¥é“å³æ™‚é–‹æ”¾ç‹€æ…‹  | æ—æ¥­åŠè‡ªç„¶ä¿è‚²ç½²å°ç£å±±æ—æ‚ éŠç¶²é–‹æ”¾è³‡æ–™      |
-        | æ­¥é“/æ™¯é»åŸºç¤è³‡æ–™ | æ”¿åºœè³‡æ–™é–‹æ”¾å¹³è‡º                 |
-      And å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                   # tests/features/steps/common_given/users.py:9
+    Example: °İ¨÷¥¼§¹¦¨®É½Ğ¨D±ÀÂË¾Ş§@¥¢±Ñ                              # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:32
+      Given ¨t²Î¤w«Ø¥ß¸ô½uª¾ÃÑ®w¡]§t¸ô½u°òÂ¦¸ê®Æ¡B§Y®É¶}©ñª¬ºA¡B·í¤é¤Ñ®ğ¹w³ø¡^¡A¨Ñ RAG ÀË¯Á¨Ï¥Î # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
+      And ­Ô¿ïª¾ÃÑ®w¸ê®Æ¨Ó·½¥]§t¡G                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
+        | ¸ê®ÆÃş«¬      | ­Ô¿ï¨Ó·½                     |
+        | ¤Ñ®ğ¹w³ø      | ¤¤¥¡®ğ¶H¸p®ğ¶H¸ê®Æ¶}©ñ¥­»O¡]¶mÂí/¤s°Ï¤Ñ®ğ¹w³ø¡^ |
+        | ¨B¹D§Y®É¶}©ñª¬ºA  | ªL·~¤Î¦ÛµM«O¨|¸p¥xÆW¤sªL±y¹Cºô¶}©ñ¸ê®Æ      |
+        | ¨B¹D/´ºÂI°òÂ¦¸ê®Æ | ¬F©²¸ê®Æ¶}©ñ¥­»O                 |
+      And ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                   # tests/features/steps/common_given/users.py:9
         | google_id | email           | name |
         | g-003     | bob@example.com | Bob  |
-      And ä½¿ç”¨è€… "Bob" å·²å›ç­”å•å·ï¼š                               # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
+      And ¨Ï¥ÎªÌ "Bob" ¤w¦^µª°İ¨÷¡G                               # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
         | question_code | answer_value |
-        | Q1            | ç´„æ¯æœˆ1æ¬¡        |
-        | Q2            | å°šæœªå®Œæˆéæ­£å¼ç™»å±±è·¯ç·š  |
-        | Q3            | 3-4 å°æ™‚       |
-        | Q4            | ç„¡            |
-      When ä½¿ç”¨è€… "Bob" è«‹æ±‚è·¯ç·šæ¨è–¦                              # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      Then æ“ä½œå¤±æ•—ï¼Œviolation_type ç‚º "PROFILE_INCOMPLETE"    # tests/features/steps/common_then/failure.py:4
+        | Q1            | Q1-4         |
+        | Q2            | ©|¥¼§¹¦¨¹L¥¿¦¡µn¤s¸ô½u  |
+        | Q3            | Q3-2         |
+        | Q4            | Q4-14        |
+      When ¨Ï¥ÎªÌ "Bob" ½Ğ¨D¸ô½u±ÀÂË                              # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      Then ¾Ş§@¥¢±Ñ¡Aviolation_type ¬° "PROFILE_INCOMPLETE"    # tests/features/steps/common_then/failure.py:4
 
-  Rule: å‰ç½®ï¼ˆåƒæ•¸ï¼‰- æ¨è–¦è·¯ç·šæ•¸é‡ä¸‹é™ç‚º 1 æ¢ã€ä¸Šé™ç‚º 3 æ¢  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:44
+  Rule: «e¸m¡]°Ñ¼Æ¡^- ±ÀÂË¸ô½u¼Æ¶q¤U­­¬° 1 ±ø¡B¤W­­¬° 3 ±ø  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:45
 
-    Example: ç¬¦åˆè·¯ç·šè¶…é 3 æ¢æ™‚åƒ…å–å‰ 3 æ¢                          # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:45
-      Given ç³»çµ±å·²å»ºç«‹è·¯ç·šçŸ¥è­˜åº«ï¼ˆå«è·¯ç·šåŸºç¤è³‡æ–™ã€å³æ™‚é–‹æ”¾ç‹€æ…‹ã€ç•¶æ—¥å¤©æ°£é å ±ï¼‰ï¼Œä¾› RAG æª¢ç´¢ä½¿ç”¨ # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
-      And å€™é¸çŸ¥è­˜åº«è³‡æ–™ä¾†æºåŒ…å«ï¼š                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
-        | è³‡æ–™é¡å‹      | å€™é¸ä¾†æº                     |
-        | å¤©æ°£é å ±      | ä¸­å¤®æ°£è±¡ç½²æ°£è±¡è³‡æ–™é–‹æ”¾å¹³è‡ºï¼ˆé„‰é®/å±±å€å¤©æ°£é å ±ï¼‰ |
-        | æ­¥é“å³æ™‚é–‹æ”¾ç‹€æ…‹  | æ—æ¥­åŠè‡ªç„¶ä¿è‚²ç½²å°ç£å±±æ—æ‚ éŠç¶²é–‹æ”¾è³‡æ–™      |
-        | æ­¥é“/æ™¯é»åŸºç¤è³‡æ–™ | æ”¿åºœè³‡æ–™é–‹æ”¾å¹³è‡º                 |
-      And å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                   # tests/features/steps/common_given/users.py:9
+    Example: ²Å¦X¸ô½u¶W¹L 3 ±ø®É¶È¨ú«e 3 ±ø                          # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:46
+      Given ¨t²Î¤w«Ø¥ß¸ô½uª¾ÃÑ®w¡]§t¸ô½u°òÂ¦¸ê®Æ¡B§Y®É¶}©ñª¬ºA¡B·í¤é¤Ñ®ğ¹w³ø¡^¡A¨Ñ RAG ÀË¯Á¨Ï¥Î # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
+      And ­Ô¿ïª¾ÃÑ®w¸ê®Æ¨Ó·½¥]§t¡G                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
+        | ¸ê®ÆÃş«¬      | ­Ô¿ï¨Ó·½                     |
+        | ¤Ñ®ğ¹w³ø      | ¤¤¥¡®ğ¶H¸p®ğ¶H¸ê®Æ¶}©ñ¥­»O¡]¶mÂí/¤s°Ï¤Ñ®ğ¹w³ø¡^ |
+        | ¨B¹D§Y®É¶}©ñª¬ºA  | ªL·~¤Î¦ÛµM«O¨|¸p¥xÆW¤sªL±y¹Cºô¶}©ñ¸ê®Æ      |
+        | ¨B¹D/´ºÂI°òÂ¦¸ê®Æ | ¬F©²¸ê®Æ¶}©ñ¥­»O                 |
+      And ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                   # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å›ç­”å•å·ï¼š                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
-        | question_code | answer_value        |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±            |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      And ç³»çµ±ä¸­æœ‰ä»¥ä¸‹è·¯ç·šï¼š                                      # tests/features/steps/recommendation/aggregate_given/routes.py:8
+      And ¨Ï¥ÎªÌ "Alice" ¤w¦^µª°İ¨÷¡G                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-6                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      And ¨t²Î¤¤¦³¥H¤U¸ô½u¡G                                      # tests/features/steps/recommendation/aggregate_given/routes.py:8
         | route_id | name | region | difficulty_level | open_status |
-        | R1       | è·¯ç·šä¸€  | åŒ—éƒ¨     | easy             | open        |
-        | R2       | è·¯ç·šäºŒ  | åŒ—éƒ¨     | easy             | open        |
-        | R3       | è·¯ç·šä¸‰  | ä¸­éƒ¨     | moderate         | open        |
-        | R4       | è·¯ç·šå››  | ä¸­éƒ¨     | moderate         | open        |
-        | R5       | è·¯ç·šäº”  | å—éƒ¨     | moderate         | open        |
-      When ä½¿ç”¨è€… "Alice" è«‹æ±‚è·¯ç·šæ¨è–¦                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      Then æ“ä½œæˆåŠŸ                                          # tests/features/steps/common_then/success.py:4
-      And æ¨è–¦çµæœæ‡‰åŒ…å« 3 æ¢è·¯ç·š                                  # tests/features/steps/recommendation/readmodel_then/route_count.py:4
+        | R1       | ¸ô½u¤@  | ¥_³¡     | easy             | open        |
+        | R2       | ¸ô½u¤G  | ¥_³¡     | easy             | open        |
+        | R3       | ¸ô½u¤T  | ¤¤³¡     | moderate         | open        |
+        | R4       | ¸ô½u¥|  | ¤¤³¡     | moderate         | open        |
+        | R5       | ¸ô½u¤­  | «n³¡     | moderate         | open        |
+      When ¨Ï¥ÎªÌ "Alice" ½Ğ¨D¸ô½u±ÀÂË                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      Then ¾Ş§@¦¨¥\                                          # tests/features/steps/common_then/success.py:4
+      And ±ÀÂËµ²ªGÀ³¥]§t 3 ±ø¸ô½u                                  # tests/features/steps/recommendation/readmodel_then/route_count.py:4
 
-  Rule: å¾Œç½®ï¼ˆå›æ‡‰ï¼‰- ç³»çµ±ä¾ä½¿ç”¨è€…å•å·æ¢ä»¶ï¼ˆå«é¢¨éšªæ‰¿å—åº¦ï¼‰ä»¥ RAG æ¶æ§‹ï¼ˆè·¯ç·šçŸ¥è­˜åº«æª¢ç´¢ + LLM æ’åºï¼‰æ¨è–¦ç¬¦åˆæ¢ä»¶çš„è·¯ç·š  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:68
+  Rule: «á¸m¡]¦^À³¡^- ¨t²Î¨Ì¨Ï¥ÎªÌ°İ¨÷±ø¥ó¡]§t­·ÀI©Ó¨ü«×¡^¥H RAG ¬[ºc¡]¸ô½uª¾ÃÑ®wÀË¯Á + LLM ±Æ§Ç¡^±ÀÂË²Å¦X±ø¥óªº¸ô½u  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:70
 
-    Example: æœ‰ç¬¦åˆæ¢ä»¶è·¯ç·šæ™‚æ¨è–¦ 1~3 æ¢                            # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:69
-      Given ç³»çµ±å·²å»ºç«‹è·¯ç·šçŸ¥è­˜åº«ï¼ˆå«è·¯ç·šåŸºç¤è³‡æ–™ã€å³æ™‚é–‹æ”¾ç‹€æ…‹ã€ç•¶æ—¥å¤©æ°£é å ±ï¼‰ï¼Œä¾› RAG æª¢ç´¢ä½¿ç”¨ # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
-      And å€™é¸çŸ¥è­˜åº«è³‡æ–™ä¾†æºåŒ…å«ï¼š                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
-        | è³‡æ–™é¡å‹      | å€™é¸ä¾†æº                     |
-        | å¤©æ°£é å ±      | ä¸­å¤®æ°£è±¡ç½²æ°£è±¡è³‡æ–™é–‹æ”¾å¹³è‡ºï¼ˆé„‰é®/å±±å€å¤©æ°£é å ±ï¼‰ |
-        | æ­¥é“å³æ™‚é–‹æ”¾ç‹€æ…‹  | æ—æ¥­åŠè‡ªç„¶ä¿è‚²ç½²å°ç£å±±æ—æ‚ éŠç¶²é–‹æ”¾è³‡æ–™      |
-        | æ­¥é“/æ™¯é»åŸºç¤è³‡æ–™ | æ”¿åºœè³‡æ–™é–‹æ”¾å¹³è‡º                 |
-      And å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                   # tests/features/steps/common_given/users.py:9
+    Example: ¦³²Å¦X±ø¥ó¸ô½u®É±ÀÂË 1~3 ±ø                            # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:71
+      Given ¨t²Î¤w«Ø¥ß¸ô½uª¾ÃÑ®w¡]§t¸ô½u°òÂ¦¸ê®Æ¡B§Y®É¶}©ñª¬ºA¡B·í¤é¤Ñ®ğ¹w³ø¡^¡A¨Ñ RAG ÀË¯Á¨Ï¥Î # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
+      And ­Ô¿ïª¾ÃÑ®w¸ê®Æ¨Ó·½¥]§t¡G                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
+        | ¸ê®ÆÃş«¬      | ­Ô¿ï¨Ó·½                     |
+        | ¤Ñ®ğ¹w³ø      | ¤¤¥¡®ğ¶H¸p®ğ¶H¸ê®Æ¶}©ñ¥­»O¡]¶mÂí/¤s°Ï¤Ñ®ğ¹w³ø¡^ |
+        | ¨B¹D§Y®É¶}©ñª¬ºA  | ªL·~¤Î¦ÛµM«O¨|¸p¥xÆW¤sªL±y¹Cºô¶}©ñ¸ê®Æ      |
+        | ¨B¹D/´ºÂI°òÂ¦¸ê®Æ | ¬F©²¸ê®Æ¶}©ñ¥­»O                 |
+      And ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                   # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å›ç­”å•å·ï¼š                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
-        | question_code | answer_value        |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±            |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      And ç³»çµ±ä¸­æœ‰ä»¥ä¸‹è·¯ç·šï¼š                                      # tests/features/steps/recommendation/aggregate_given/routes.py:8
+      And ¨Ï¥ÎªÌ "Alice" ¤w¦^µª°İ¨÷¡G                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-6                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      And ¨t²Î¤¤¦³¥H¤U¸ô½u¡G                                      # tests/features/steps/recommendation/aggregate_given/routes.py:8
         | route_id | name | region | difficulty_level | open_status |
-        | R1       | è·¯ç·šä¸€  | åŒ—éƒ¨     | moderate         | open        |
-        | R2       | è·¯ç·šäºŒ  | ä¸­éƒ¨     | moderate         | open        |
-      When ä½¿ç”¨è€… "Alice" è«‹æ±‚è·¯ç·šæ¨è–¦                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      Then æ“ä½œæˆåŠŸ                                          # tests/features/steps/common_then/success.py:4
-      And æ¨è–¦çµæœæ‡‰åŒ…å« 2 æ¢è·¯ç·š                                  # tests/features/steps/recommendation/readmodel_then/route_count.py:4
-      And æ¨è–¦çµæœæ‡‰åŒ…å«ä»¥ä¸‹è·¯ç·šï¼š                                   # tests/features/steps/recommendation/readmodel_then/route_list.py:4
+        | R1       | ¸ô½u¤@  | ¥_³¡     | moderate         | open        |
+        | R2       | ¸ô½u¤G  | ¤¤³¡     | moderate         | open        |
+      When ¨Ï¥ÎªÌ "Alice" ½Ğ¨D¸ô½u±ÀÂË                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      Then ¾Ş§@¦¨¥\                                          # tests/features/steps/common_then/success.py:4
+      And ±ÀÂËµ²ªGÀ³¥]§t 2 ±ø¸ô½u                                  # tests/features/steps/recommendation/readmodel_then/route_count.py:4
+      And ±ÀÂËµ²ªGÀ³¥]§t¥H¤U¸ô½u¡G                                   # tests/features/steps/recommendation/readmodel_then/route_list.py:4
         | route_id | name |
-        | R1       | è·¯ç·šä¸€  |
-        | R2       | è·¯ç·šäºŒ  |
+        | R1       | ¸ô½u¤@  |
+        | R2       | ¸ô½u¤G  |
 
-  Rule: å¾Œç½®ï¼ˆå›æ‡‰ï¼‰- ç„¡ç¬¦åˆæ¢ä»¶è·¯ç·šæ™‚ï¼Œé¡¯ç¤ºã€Œç„¡ç¬¦åˆè³‡æ–™ã€  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:93
+  Rule: «á¸m¡]¦^À³¡^- µL²Å¦X±ø¥ó¸ô½u®É¡AÅã¥Ü¡uµL²Å¦X¸ê®Æ¡v  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:96
 
-    Example: ç„¡ç¬¦åˆæ¢ä»¶è·¯ç·šæ™‚é¡¯ç¤ºç„¡ç¬¦åˆè³‡æ–™                             # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:94
-      Given ç³»çµ±å·²å»ºç«‹è·¯ç·šçŸ¥è­˜åº«ï¼ˆå«è·¯ç·šåŸºç¤è³‡æ–™ã€å³æ™‚é–‹æ”¾ç‹€æ…‹ã€ç•¶æ—¥å¤©æ°£é å ±ï¼‰ï¼Œä¾› RAG æª¢ç´¢ä½¿ç”¨ # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
-      And å€™é¸çŸ¥è­˜åº«è³‡æ–™ä¾†æºåŒ…å«ï¼š                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
-        | è³‡æ–™é¡å‹      | å€™é¸ä¾†æº                     |
-        | å¤©æ°£é å ±      | ä¸­å¤®æ°£è±¡ç½²æ°£è±¡è³‡æ–™é–‹æ”¾å¹³è‡ºï¼ˆé„‰é®/å±±å€å¤©æ°£é å ±ï¼‰ |
-        | æ­¥é“å³æ™‚é–‹æ”¾ç‹€æ…‹  | æ—æ¥­åŠè‡ªç„¶ä¿è‚²ç½²å°ç£å±±æ—æ‚ éŠç¶²é–‹æ”¾è³‡æ–™      |
-        | æ­¥é“/æ™¯é»åŸºç¤è³‡æ–™ | æ”¿åºœè³‡æ–™é–‹æ”¾å¹³è‡º                 |
-      And å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                   # tests/features/steps/common_given/users.py:9
+    Example: µL²Å¦X±ø¥ó¸ô½u®ÉÅã¥ÜµL²Å¦X¸ê®Æ                             # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:97
+      Given ¨t²Î¤w«Ø¥ß¸ô½uª¾ÃÑ®w¡]§t¸ô½u°òÂ¦¸ê®Æ¡B§Y®É¶}©ñª¬ºA¡B·í¤é¤Ñ®ğ¹w³ø¡^¡A¨Ñ RAG ÀË¯Á¨Ï¥Î # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
+      And ­Ô¿ïª¾ÃÑ®w¸ê®Æ¨Ó·½¥]§t¡G                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
+        | ¸ê®ÆÃş«¬      | ­Ô¿ï¨Ó·½                     |
+        | ¤Ñ®ğ¹w³ø      | ¤¤¥¡®ğ¶H¸p®ğ¶H¸ê®Æ¶}©ñ¥­»O¡]¶mÂí/¤s°Ï¤Ñ®ğ¹w³ø¡^ |
+        | ¨B¹D§Y®É¶}©ñª¬ºA  | ªL·~¤Î¦ÛµM«O¨|¸p¥xÆW¤sªL±y¹Cºô¶}©ñ¸ê®Æ      |
+        | ¨B¹D/´ºÂI°òÂ¦¸ê®Æ | ¬F©²¸ê®Æ¶}©ñ¥­»O                 |
+      And ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                   # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å›ç­”å•å·ï¼š                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
-        | question_code | answer_value        |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±            |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      When ä½¿ç”¨è€… "Alice" è«‹æ±‚è·¯ç·šæ¨è–¦                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      Then æ“ä½œæˆåŠŸ                                          # tests/features/steps/common_then/success.py:4
-      And æ¨è–¦çµæœæ‡‰ç‚ºã€Œç„¡ç¬¦åˆè³‡æ–™ã€                                  # tests/features/steps/recommendation/readmodel_then/no_matches.py:4
+      And ¨Ï¥ÎªÌ "Alice" ¤w¦^µª°İ¨÷¡G                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-6                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      When ¨Ï¥ÎªÌ "Alice" ½Ğ¨D¸ô½u±ÀÂË                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      Then ¾Ş§@¦¨¥\                                          # tests/features/steps/common_then/success.py:4
+      And ±ÀÂËµ²ªGÀ³¬°¡uµL²Å¦X¸ê®Æ¡v                                  # tests/features/steps/recommendation/readmodel_then/no_matches.py:4
 
-  Rule: å¾Œç½®ï¼ˆç‹€æ…‹ï¼‰- ä½¿ç”¨è€…å¯è¦æ±‚é‡æ–°æ¨è–¦  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:110
+  Rule: «á¸m¡]ª¬ºA¡^- ¨Ï¥ÎªÌ¥i­n¨D­«·s±ÀÂË  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:114
 
-    Example: ä½¿ç”¨è€…å¯é€£çºŒè«‹æ±‚æ¨è–¦                                  # tests/features/recommendation/è«‹æ±‚è·¯ç·šæ¨è–¦.feature:111
-      Given ç³»çµ±å·²å»ºç«‹è·¯ç·šçŸ¥è­˜åº«ï¼ˆå«è·¯ç·šåŸºç¤è³‡æ–™ã€å³æ™‚é–‹æ”¾ç‹€æ…‹ã€ç•¶æ—¥å¤©æ°£é å ±ï¼‰ï¼Œä¾› RAG æª¢ç´¢ä½¿ç”¨ # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
-      And å€™é¸çŸ¥è­˜åº«è³‡æ–™ä¾†æºåŒ…å«ï¼š                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
-        | è³‡æ–™é¡å‹      | å€™é¸ä¾†æº                     |
-        | å¤©æ°£é å ±      | ä¸­å¤®æ°£è±¡ç½²æ°£è±¡è³‡æ–™é–‹æ”¾å¹³è‡ºï¼ˆé„‰é®/å±±å€å¤©æ°£é å ±ï¼‰ |
-        | æ­¥é“å³æ™‚é–‹æ”¾ç‹€æ…‹  | æ—æ¥­åŠè‡ªç„¶ä¿è‚²ç½²å°ç£å±±æ—æ‚ éŠç¶²é–‹æ”¾è³‡æ–™      |
-        | æ­¥é“/æ™¯é»åŸºç¤è³‡æ–™ | æ”¿åºœè³‡æ–™é–‹æ”¾å¹³è‡º                 |
-      And å€‹äººæ¢ä»¶å•å·åŒ…å«ä»¥ä¸‹é¡Œé …ï¼š                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:20
-        | é¡Œè™Ÿ  | é¡Œç›®                   | å›ç­”å‹æ…‹    | æ˜¯å¦å¿…ç­” |
-        | Q1  | æœ€è¿‘ä¸€å¹´ç™»å±±é »ç‡             | å–®é¸      | å¿…ç­”   |
-        | Q2  | æ›¾å®Œæˆä¸”æœ€æ¥è¿‘èƒ½åŠ›ä¸Šé™çš„è·¯ç·šèˆ‡å®Œæˆæ™‚é«”æ„Ÿ | é–‹æ”¾æ–‡å­—+å–®é¸ | å¿…ç­”   |
-        | Q3  | ä¸€èˆ¬å¤©æ°£è·¯æ³ä¸‹å¯èˆ’é©å®Œæˆçš„å–®æ—¥è¡Œç¨‹    | å–®é¸      | å¿…ç­”   |
-        | Q4  | å·²å…·å‚™æˆ–èƒ½ç¨ç«‹æ“ä½œçš„ç™»å±±ç¶“é©—é¡å‹     | è¤‡é¸      | å¿…ç­”   |
-        | Q5  | å°å„é¡ç™»å±±æƒ…å¢ƒçš„é¢¨éšªæ¥å—ç¨‹åº¦       | çŸ©é™£å–®é¸    | å¿…ç­”   |
-        | Q6  | åå¥½çš„è¡Œç¨‹ç¯€å¥              | å–®é¸      | å¯ç•¥é  |
-        | Q7  | åå¥½çš„è¡Œç¨‹æ™‚é–“              | å–®é¸      | å¯ç•¥é  |
-        | Q8  | åå¥½çš„äººæ½®ç‹€æ³              | å–®é¸      | å¯ç•¥é  |
-        | Q9  | å¸Œæœ›ç™»å±±è¡Œç¨‹åŒ…å«çš„é«”é©—          | è¤‡é¸      | å¯ç•¥é  |
-        | Q10 | ç†æƒ³ä¸­çš„ç™»å±±è¡Œç¨‹æè¿°           | é–‹æ”¾æ–‡å­—    | å¯ç•¥é  |
-        | Q11 | éœ€ç‰¹åˆ¥è€ƒé‡çš„èº«é«”ç‹€æ³æˆ–éœ€æ±‚        | è¤‡é¸      | å¿…ç­”   |
-      Given ç³»çµ±ä¸­æœ‰ä»¥ä¸‹ä½¿ç”¨è€…ï¼š                                   # tests/features/steps/common_given/users.py:9
+    Example: ¨Ï¥ÎªÌ¥i³sÄò½Ğ¨D±ÀÂË                                  # tests/features/recommendation/½Ğ¨D¸ô½u±ÀÂË.feature:115
+      Given ¨t²Î¤w«Ø¥ß¸ô½uª¾ÃÑ®w¡]§t¸ô½u°òÂ¦¸ê®Æ¡B§Y®É¶}©ñª¬ºA¡B·í¤é¤Ñ®ğ¹w³ø¡^¡A¨Ñ RAG ÀË¯Á¨Ï¥Î # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:7
+      And ­Ô¿ïª¾ÃÑ®w¸ê®Æ¨Ó·½¥]§t¡G                                   # tests/features/steps/recommendation/aggregate_given/knowledge_base_context.py:14
+        | ¸ê®ÆÃş«¬      | ­Ô¿ï¨Ó·½                     |
+        | ¤Ñ®ğ¹w³ø      | ¤¤¥¡®ğ¶H¸p®ğ¶H¸ê®Æ¶}©ñ¥­»O¡]¶mÂí/¤s°Ï¤Ñ®ğ¹w³ø¡^ |
+        | ¨B¹D§Y®É¶}©ñª¬ºA  | ªL·~¤Î¦ÛµM«O¨|¸p¥xÆW¤sªL±y¹Cºô¶}©ñ¸ê®Æ      |
+        | ¨B¹D/´ºÂI°òÂ¦¸ê®Æ | ¬F©²¸ê®Æ¶}©ñ¥­»O                 |
+      And ­Ó¤H±ø¥ó°İ¨÷¥]§t¥H¤UÃD¶µ¡G                                  # tests/features/steps/profile/aggregate_given/questionnaire_questions.py:39
+        | ÃD¸¹  | ÃD¥Ø                   | ¦^µª«¬ºA | ¬O§_¥²µª | ¿ï¶µ¡]¥N½X:¤å¦r¡^                                                                                                                                                                                                            |
+        | Q1  | ³Ìªñ¤@¦~µn¤sÀW²v             | ³æ¿ï   | ¥²µª   | Q1-1:´X¥G¨S¦³µn¤s¸gÅç, Q1-2:¨C¥b¦~¬ù1-2¦¸, Q1-3:¨C2-3­Ó¤ë¬ù1¦¸, Q1-4:¬ù¨C¤ë1-2¦¸, Q1-5:¬ù¨C¶g©Î¨C¨â¶g1¦¸, Q1-6:¨C¶g¦h¦¸                                                                                                                                |
+        | Q2  | ´¿§¹¦¨¥B³Ì±µªñ¯à¤O¤W­­ªº¸ô½u¡]¸ô½u¦WºÙ¡^ | ¶}©ñ¤å¦r | ¥²µª   | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q2B | ¤W­z¸ô½u§¹¦¨®ÉªºÅé·P           | ³æ¿ï   | ¥²µª   | Q2B-1:«D±`»´ÃP, Q2B-2:»´ÃP, Q2B-3:¾A¤¤, Q2B-4:¦³¬D¾Ô¦ı¥i§¹¦¨, Q2B-5:«D±`¦Y¤O¡ş±µªñ·¥­­, Q2B-6:¤¤³~©ñ±ó©Î»İ­n¨ó§U                                                                                                                                      |
+        | Q3  | ¤@¯ë¤Ñ®ğ¸ôªp¤U¥iµÎ¾A§¹¦¨ªº³æ¤é¦æµ{    | ³æ¿ï   | ¥²µª   | Q3-1:2¤p®É¥H¤º, Q3-2:2-4¤p®É, Q3-3:4-6¤p®É, Q3-4:6-8¤p®É, Q3-5:8-10¤p®É, Q3-6:10¤p®É¥H¤W                                                                                                                                             |
+        | Q4  | ¤w¨ã³Æ©Î¯à¿W¥ß¾Ş§@ªºµn¤s¸gÅçÃş«¬     | ½Æ¿ï   | ¥²µª   | Q4-1:¤@¯ë¨B¹D°·¦æ, Q4-2:°~©Y¡ş³sÄò¶¥±è, Q4-3:­ì©l¤s®|, Q4-4:¸H¥Û¡ş©¥¥Û¦a§Î, Q4-5:©ÔÃ·¡ş»İ¤â¸}¨Ã¥Î¦a§Î, Q4-6:©]¶¡¦æ¨«, Q4-7:¦a¹Ï¡şÂ÷½u¦a¹Ï§PÅª, Q4-8:GPX¾É¯è, Q4-9:´ç·Ë, Q4-10:°ª¤s¹L©]¡ş¤s«Î, Q4-11:ÅSÀç¡ş­I­t¸Ë³Æ, Q4-12:°ª®ü©Ş3000m¥H¤W, Q4-13:³·©u¡ş¦B³·¦a§Î, Q4-14:µL¤W­z¸gÅç                      |
+        | Q5  | ¹ï¦UÃşµn¤s±¡¹Òªº­·ÀI±µ¨üµ{«×       | ¯x°}³æ¿ï | ¥²µª   | ±¡¹Ò¡]¦C¡^¡Gsteepness:°~®k¤W©Y¡ş¤U©Y, scrambling:¤â¸}¨Ã¥ÎÃkª¦, exposure:¼ÉÅS·P±jªº¸W½u¡ş°ª¸¨®t¦a§Î, altitude:°ª®ü©ŞÀô¹Ò, navigation_difficulty:¸ô®|¤£©úÅã¡ş»İ­n¦Û¦æ¾É¯è¡F±µ¨üµ{«×¡]Äæ¡^¡GQ5-1:¤£±µ¨ü, Q5-2:ºÉ¶qÁ×§K, Q5-3:µø±¡ªp¥i±µ¨ü, Q5-4:¥i¥H±µ¨ü, Q5-5:³ßÅw¡ş¥D°Ê¿ï¾Ü                             |
+        | Q6  | °¾¦nªº¦æµ{¸`«µ              | ³æ¿ï   | ¥i²¤¹L  | Q6-1:±y¶¢¡A¸g±`¥ğ®§©ç·Ó, Q6-2:°¾±y¶¢, Q6-3:¾A¤¤, Q6-4:°¾§Ö¡A¥H§¹¦¨¸ô½u¬°¥D, Q6-5:¬D¾Ô«¬¡A°¾¦n°ª±j«×                                                                                                                                                   |
+        | Q7  | °¾¦nªº¦æµ{®É¶¡              | ³æ¿ï   | ¥i²¤¹L  | Q7-1:2¤p®É¥H¤º, Q7-2:2-4¤p®É, Q7-3:4-6¤p®É, Q7-4:6-8¤p®É, Q7-5:8-10¤p®É, Q7-6:¤£­­©w                                                                                                                                                |
+        | Q8  | °¾¦nªº¤H¼éª¬ªp              | ³æ¿ï   | ¥i²¤¹L  | Q8-1:¼öªù¡B¤H¦h¤]¥i¥H, Q8-2:¦³¤@¨Ç¤H¤ñ¸û¦w¤ß, Q8-3:µL¯S§O°¾¦n, Q8-4:°¾¦n¤H¤Ö, Q8-5:¶V¦wÀR¡B¶V¤Ö¤H¶V¦n                                                                                                                                                  |
+        | Q9  | §Æ±æµn¤s¦æµ{¥]§tªºÅéÅç          | ½Æ¿ï   | ¥i²¤¹L  | Q9-1:¤s³»®i±æ, Q9-2:¤é¥X, Q9-3:¤é¸¨, Q9-4:´ËªL, Q9-5:Âr¥¬¡ş·Ë¬y, Q9-6:´òªy, Q9-7:¶³®ü, Q9-8:©u¸`ªá¥c¡ş´Óª«, Q9-9:³¥¥Í°Êª«¡ş¥ÍºA, Q9-10:¾ú¥v¡ş¤H¤å¿ò¸ñ, Q9-11:Äá¼v, Q9-12:°ª¤s´ºÆ[, Q9-13:¸W½u¦æ¨«, Q9-14:Ãkª¦¡ş¨ë¿E¦a§Î, Q9-15:·Å¬u, Q9-16:¤s«Î¡ş¦í±JÅéÅç, Q9-17:ÅSÀç, Q9-18:¦Ê©¨¡ş¤p¦Ê©¨¡ş¤s©¨»`¶° |
+        | Q10 | ²z·Q¤¤ªºµn¤s¦æµ{´y­z           | ¶}©ñ¤å¦r | ¥i²¤¹L  | ¡]µL¡^                                                                                                                                                                                                                  |
+        | Q11 | »İ¯S§O¦Ò¶qªº¨­Åéª¬ªp©Î»İ¨D        | ½Æ¿ï   | ¥²µª   | Q11-1:µL¯S®í»İ¨D, Q11-2:½¥»\®e©ö¤£¾A, Q11-3:¸}½ï¡ş¨¬³¡®e©ö¤£¾A, Q11-4:¸y­I®e©ö¤£¾A, Q11-5:¤ßªÍ­@¤O¸û®z, Q11-6:®e©ö³İ¡ş»İ­n¸ûÀWÁc¥ğ®§, Q11-7:Äß°ª, Q11-8:®e©ö·w¯t, Q11-9:¤£¾A¦Xªø®É¶¡ÃnÅÎ, Q11-10:¤£¾A¦X§C·ÅÀô¹Ò, Q11-11:¤£¾A¦X°ª®ü©Ş, Q11-12:»İ­n¸ûÀWÁc¸É¤ô¡ş¥ğ®§, Q11-13:¨ä¥L                         |
+      Given ¨t²Î¤¤¦³¥H¤U¨Ï¥ÎªÌ¡G                                   # tests/features/steps/common_given/users.py:9
         | google_id | email             | name  |
         | g-001     | alice@example.com | Alice |
-      And ä½¿ç”¨è€… "Alice" å·²å›ç­”å•å·ï¼š                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
-        | question_code | answer_value        |
-        | Q1            | å¹¾ä¹æ¯é€±éƒ½æœ‰ç™»å±±            |
-        | Q2            | å·²å®ŒæˆéƒŠå±±ä¸€æ—¥å¥è¡Œï¼Œé«”æ„Ÿè¼•é¬†      |
-        | Q3            | 6-8 å°æ™‚              |
-        | Q4            | åœ°åœ–åˆ¤è®€, æºªè°·æ¸¡æºª          |
-        | Q5            | é™¡å³­çŸ³éš:å¯æ¥å—, éœ€å‚é™åœ°å½¢:ä¸æ¥å— |
-        | Q11           | ç„¡ç‰¹æ®Šèº«é«”ç‹€æ³             |
-      And ç³»çµ±ä¸­æœ‰ä»¥ä¸‹è·¯ç·šï¼š                                      # tests/features/steps/recommendation/aggregate_given/routes.py:8
+      And ¨Ï¥ÎªÌ "Alice" ¤w¦^µª°İ¨÷¡G                             # tests/features/steps/profile/aggregate_given/questionnaire_answers.py:14
+        | question_code | answer_value                                                                          |
+        | Q1            | Q1-6                                                                                  |
+        | Q2            | ­¥¤s¤@¤é°·¦æ                                                                                |
+        | Q2B           | Q2B-2                                                                                 |
+        | Q3            | Q3-4                                                                                  |
+        | Q4            | Q4-7,Q4-9                                                                             |
+        | Q5            | steepness:Q5-4,scrambling:Q5-1,exposure:Q5-2,altitude:Q5-3,navigation_difficulty:Q5-3 |
+        | Q11           | Q11-1                                                                                 |
+      And ¨t²Î¤¤¦³¥H¤U¸ô½u¡G                                      # tests/features/steps/recommendation/aggregate_given/routes.py:8
         | route_id | name | region | difficulty_level | open_status |
-        | R1       | è·¯ç·šä¸€  | åŒ—éƒ¨     | moderate         | open        |
-      When ä½¿ç”¨è€… "Alice" è«‹æ±‚è·¯ç·šæ¨è–¦                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      And ä½¿ç”¨è€… "Alice" è«‹æ±‚è·¯ç·šæ¨è–¦                             # tests/features/steps/recommendation/commands/request_recommendation.py:4
-      Then æ“ä½œæˆåŠŸ                                          # tests/features/steps/common_then/success.py:4
+        | R1       | ¸ô½u¤@  | ¥_³¡     | moderate         | open        |
+      When ¨Ï¥ÎªÌ "Alice" ½Ğ¨D¸ô½u±ÀÂË                            # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      And ¨Ï¥ÎªÌ "Alice" ½Ğ¨D¸ô½u±ÀÂË                             # tests/features/steps/recommendation/commands/request_recommendation.py:4
+      Then ¾Ş§@¦¨¥\                                          # tests/features/steps/common_then/success.py:4
 

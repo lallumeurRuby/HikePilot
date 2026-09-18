@@ -1,3 +1,4 @@
+import json
 import os
 from types import SimpleNamespace
 
@@ -7,10 +8,27 @@ from testcontainers.postgres import PostgresContainer
 
 from alembic import command
 from alembic.config import Config
+from app.api.auth import get_google_identity
 from app.core.deps import set_session_factory
+from app.core.google_oauth import GoogleIdentity
 from app.main import create_app
 from app.models import Base
+from app.schemas.auth import GoogleLoginRequest
 from tests.features.helpers.jwt_helper import JwtHelper
+
+
+def fake_get_google_identity(request: GoogleLoginRequest) -> GoogleIdentity:
+    """Test double for Google ID token verification.
+
+    Real Google OAuth is outside this system's testable boundary (see
+    auth/使用者透過Google登入.feature), so scenarios encode the intended
+    google_id/email/name as a JSON "fake token" and this reads them back
+    instead of calling out to Google.
+    """
+    claims = json.loads(request.id_token)
+    return GoogleIdentity(
+        google_id=claims["google_id"], email=claims["email"], name=claims["name"]
+    )
 
 postgres_container = None
 engine = None
@@ -47,6 +65,7 @@ def before_scenario(context, scenario):
     context.db_session = SessionLocal()
 
     app = create_app()
+    app.dependency_overrides[get_google_identity] = fake_get_google_identity
     from starlette.testclient import TestClient
 
     context.api_client = TestClient(app)

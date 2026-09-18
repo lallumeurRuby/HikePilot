@@ -4,12 +4,13 @@ import jwt
 from fastapi import Header
 from sqlalchemy.orm import Session, sessionmaker
 
+from app.core.config import settings
 from app.exceptions import BusinessError
 
 logger = logging.getLogger(__name__)
 
-JWT_SECRET = "test-secret-key"
-JWT_ALGORITHM = "HS256"
+JWT_SECRET = settings.JWT_SECRET
+JWT_ALGORITHM = settings.JWT_ALGORITHM
 
 _session_factory: sessionmaker | None = None
 

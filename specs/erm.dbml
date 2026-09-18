@@ -13,20 +13,48 @@ Table user {
 
 Table questionnaire_question {
   id             integer            [pk, increment]
-  code           varchar            [unique, not null, note: 'Q1-Q11']
+  code           varchar            [unique, not null, note: 'Q1-Q11 及 Q2B']
   question_text  text               [not null]
   answer_type    answer_type_enum   [not null]
   is_required    boolean            [not null]
   display_order  integer            [not null]
 
-  Note: '個人條件問卷題目定義，對應 填寫個人條件問卷.feature 的 Background'
+  Note: '個人條件問卷題目定義，對應 填寫個人條件問卷.feature 的 Background。Q2 為路線名稱（open_text），Q2B 為體感（single_choice），兩者皆必答'
+}
+
+Table questionnaire_question_option {
+  id             integer   [pk, increment]
+  question_code  varchar   [not null, note: 'FK questionnaire_question.code']
+  option_code    varchar   [not null, note: '如 Q1-1；single_choice/multi_choice 題目的選項，或 matrix_single_choice 題目的等級（欄）']
+  option_text    varchar   [not null]
+  display_order  integer   [not null]
+
+  indexes {
+    (question_code, option_code) [unique]
+  }
+
+  Note: '題目的選項清單；open_text 題目（Q2、Q10）無對應資料列'
+}
+
+Table questionnaire_question_scenario {
+  id             integer   [pk, increment]
+  question_code  varchar   [not null, note: 'FK questionnaire_question.code，僅 matrix_single_choice 題目使用（目前為 Q5）']
+  scenario_code  varchar   [not null, note: '如 steepness']
+  scenario_text  varchar   [not null]
+  display_order  integer   [not null]
+
+  indexes {
+    (question_code, scenario_code) [unique]
+  }
+
+  Note: 'matrix_single_choice 題目的情境（列）定義，與 questionnaire_question_option 的等級（欄）組成矩陣'
 }
 
 Table questionnaire_answer {
   id            integer   [pk, increment]
   user_id       integer   [not null]
   question_id   integer   [not null]
-  answer_value  text      [note: '複選/矩陣型答案以 JSON 字串序列化儲存']
+  answer_value  text      [note: '單選/開放文字存單一值或選項代碼；複選存逗號分隔的選項代碼（如 Q4-7,Q4-9）；矩陣存逗號分隔的「情境代碼:等級代碼」（如 steepness:Q5-4,scrambling:Q5-1）']
   answered_at   timestamp [not null]
 
   indexes {
@@ -128,6 +156,8 @@ Enum section_name_enum {
   pre_trip_checklist    [note: '行前 Checklist']
 }
 
+Ref: questionnaire_question_option.question_code > questionnaire_question.code
+Ref: questionnaire_question_scenario.question_code > questionnaire_question.code
 Ref: questionnaire_answer.user_id > user.id
 Ref: questionnaire_answer.question_id > questionnaire_question.id
 Ref: recommendation.user_id > user.id

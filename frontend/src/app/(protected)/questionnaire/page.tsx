@@ -4,7 +4,135 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { submitQuestionnaireAnswers, ApiClientError } from '@/lib/api'
 import { mockQuestionnaireQuestions } from '@/mocks/fixtures'
+import type { QuestionnaireQuestion } from '@/lib/types'
 import { Toast } from '@/components/Toast'
+
+function parseMultiChoice(value: string | undefined): string[] {
+  return (value ?? '').split(',').map((v) => v.trim()).filter(Boolean)
+}
+
+function parseMatrix(value: string | undefined): Record<string, string> {
+  const result: Record<string, string> = {}
+  for (const pair of (value ?? '').split(',')) {
+    const [scenarioCode, optionCode] = pair.split(':')
+    if (scenarioCode && optionCode) result[scenarioCode.trim()] = optionCode.trim()
+  }
+  return result
+}
+
+function serializeMatrix(matrix: Record<string, string>): string {
+  return Object.entries(matrix)
+    .map(([scenarioCode, optionCode]) => `${scenarioCode}:${optionCode}`)
+    .join(',')
+}
+
+function QuestionField({
+  question,
+  value,
+  onChange,
+}: {
+  question: QuestionnaireQuestion
+  value: string
+  onChange: (value: string) => void
+}) {
+  const { code, answer_type, options, scenarios, is_required } = question
+
+  if (answer_type === 'open_text') {
+    return (
+      <input
+        id={`answer-${code}`}
+        data-testid={`answer-${code}`}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        required={is_required}
+        style={{ display: 'block', width: '100%' }}
+      />
+    )
+  }
+
+  if (answer_type === 'single_choice') {
+    return (
+      <div data-testid={`answer-${code}`} role="radiogroup">
+        {options?.map((opt) => (
+          <label key={opt.code} style={{ display: 'block' }}>
+            <input
+              type="radio"
+              name={`answer-${code}`}
+              data-testid={`answer-${code}-${opt.code}`}
+              checked={value === opt.code}
+              onChange={() => onChange(opt.code)}
+              required={is_required}
+            />
+            {opt.text}
+          </label>
+        ))}
+      </div>
+    )
+  }
+
+  if (answer_type === 'multi_choice') {
+    const selected = parseMultiChoice(value)
+    return (
+      <div data-testid={`answer-${code}`}>
+        {options?.map((opt) => (
+          <label key={opt.code} style={{ display: 'block' }}>
+            <input
+              type="checkbox"
+              data-testid={`answer-${code}-${opt.code}`}
+              checked={selected.includes(opt.code)}
+              onChange={(e) => {
+                const next = e.target.checked
+                  ? [...selected, opt.code]
+                  : selected.filter((c) => c !== opt.code)
+                onChange(next.join(','))
+              }}
+            />
+            {opt.text}
+          </label>
+        ))}
+      </div>
+    )
+  }
+
+  if (answer_type === 'matrix_single_choice') {
+    const matrix = parseMatrix(value)
+    return (
+      <table data-testid={`answer-${code}`} style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead>
+          <tr>
+            <th></th>
+            {options?.map((opt) => (
+              <th key={opt.code} style={{ fontWeight: 'normal', fontSize: '0.85em' }}>
+                {opt.text}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {scenarios?.map((scenario) => (
+            <tr key={scenario.code}>
+              <td>{scenario.text}</td>
+              {options?.map((opt) => (
+                <td key={opt.code} style={{ textAlign: 'center' }}>
+                  <input
+                    type="radio"
+                    name={`answer-${code}-${scenario.code}`}
+                    data-testid={`answer-${code}-${scenario.code}-${opt.code}`}
+                    checked={matrix[scenario.code] === opt.code}
+                    onChange={() => onChange(serializeMatrix({ ...matrix, [scenario.code]: opt.code }))}
+                    required={is_required}
+                  />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
+  }
+
+  return null
+}
 
 export default function QuestionnairePage() {
   const router = useRouter()
@@ -49,13 +177,10 @@ export default function QuestionnairePage() {
               {q.code}. {q.question_text}
               {q.is_required && <span aria-hidden="true"> *</span>}
             </label>
-            <input
-              id={`answer-${q.code}`}
-              data-testid={`answer-${q.code}`}
+            <QuestionField
+              question={q}
               value={answers[q.code] ?? ''}
-              onChange={(e) => updateAnswer(q.code, e.target.value)}
-              required={q.is_required}
-              style={{ display: 'block', width: '100%' }}
+              onChange={(value) => updateAnswer(q.code, value)}
             />
           </div>
         ))}

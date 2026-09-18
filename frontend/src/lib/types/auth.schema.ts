@@ -1,9 +1,7 @@
 import { z } from 'zod'
 
 export const GoogleLoginRequestSchema = z.object({
-  google_id: z.string(),
-  email: z.string().email(),
-  name: z.string(),
+  id_token: z.string(),
 })
 export type GoogleLoginRequest = z.infer<typeof GoogleLoginRequestSchema>
 

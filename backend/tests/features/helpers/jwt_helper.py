@@ -1,9 +1,11 @@
 import jwt
 
+from app.core.config import settings
+
 
 class JwtHelper:
-    SECRET = "test-secret-key"
-    ALGORITHM = "HS256"
+    SECRET = settings.JWT_SECRET
+    ALGORITHM = settings.JWT_ALGORITHM
 
     def generate_token(self, player_name: str) -> str:
         payload = {"player_name": player_name}

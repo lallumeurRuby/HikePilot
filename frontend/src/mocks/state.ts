@@ -32,7 +32,7 @@ export function setAnswers(googleId: string, answers: Record<string, string>) {
 export function getRequiredAnswered(googleId: string): boolean {
   const user = users.get(googleId)
   if (!user) return false
-  const required = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q11']
+  const required = ['Q1', 'Q2', 'Q2B', 'Q3', 'Q4', 'Q5', 'Q11']
   return required.every((code) => !!user.answers[code])
 }
 

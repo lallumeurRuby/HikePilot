@@ -1,5 +1,6 @@
 import { http, HttpResponse } from 'msw'
 import type { GoogleLoginRequest, GoogleLoginResponse } from '@/lib/types'
+import { decodeGoogleIdToken } from '../decodeGoogleIdToken'
 import { upsertUser } from '../state'
 
 const API_BASE = '/api'
@@ -7,13 +8,14 @@ const API_BASE = '/api'
 export const authHandlers = [
   http.post(`${API_BASE}/auth/google`, async ({ request }) => {
     const body = (await request.json()) as GoogleLoginRequest
-    const isNewUser = upsertUser(body.google_id, body.email, body.name)
+    const { sub: google_id, email, name } = decodeGoogleIdToken(body.id_token)
+    const isNewUser = upsertUser(google_id, email, name)
 
     const response: GoogleLoginResponse = {
       success: true,
       data: {
         is_new_user: isNewUser,
-        token: body.google_id,
+        token: google_id,
         ...(isNewUser ? { next_step: 'questionnaire' as const } : {}),
       },
     }

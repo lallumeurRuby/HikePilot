@@ -43,7 +43,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessResponse'
         '400':
-          description: 必答題未填寫（violation_type = MISSING_REQUIRED_ANSWER）
+          description: 必答題未填寫（violation_type = MISSING_REQUIRED_ANSWER）或選項代碼不合法（violation_type = INVALID_OPTION_CODE）
           content:
             application/json:
               schema:
@@ -133,6 +133,7 @@ components:
               enum:
                 - UNAUTHENTICATED
                 - MISSING_REQUIRED_ANSWER
+                - INVALID_OPTION_CODE
                 - PROFILE_INCOMPLETE
                 - ROUTE_NOT_SELECTED
                 - ROUTE_NOT_IN_RECOMMENDATION
@@ -180,10 +181,13 @@ components:
             properties:
               question_code:
                 type: string
-                enum: [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11]
+                enum: [Q1, Q2, Q2B, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11]
               answer_value:
                 type: string
-                description: 複選/矩陣型答案以序列化字串表示
+                description: >
+                  單選/開放文字為單一值或選項代碼；複選為逗號分隔的選項代碼（如 "Q4-7,Q4-9"）；
+                  矩陣（Q5）為逗號分隔的「情境代碼:等級代碼」（如 "steepness:Q5-4,scrambling:Q5-1"）。
+                  選項代碼須對應題目定義的選項清單，否則觸發 INVALID_OPTION_CODE。
 
     # ── /recommendations ──────────────────────────────
 

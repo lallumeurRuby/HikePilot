@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const QuestionCodeSchema = z.enum([
-  'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11',
+  'Q1', 'Q2', 'Q2B', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11',
 ])
 export type QuestionCode = z.infer<typeof QuestionCodeSchema>
 
@@ -21,10 +21,19 @@ export const SuccessResponseSchema = z.object({
 })
 export type SuccessResponse = z.infer<typeof SuccessResponseSchema>
 
+export interface QuestionOption {
+  code: string
+  text: string
+}
+
 // Background：個人條件問卷題項（specs/features/profile, recommendation 的 Background 共用）
 export interface QuestionnaireQuestion {
   code: QuestionCode
   question_text: string
   answer_type: 'single_choice' | 'multi_choice' | 'open_text' | 'matrix_single_choice'
   is_required: boolean
+  /** single_choice/multi_choice 的選項；matrix_single_choice 的等級（欄） */
+  options?: QuestionOption[]
+  /** 僅 matrix_single_choice 使用：情境（列） */
+  scenarios?: QuestionOption[]
 }

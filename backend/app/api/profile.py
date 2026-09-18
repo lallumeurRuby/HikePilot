@@ -5,8 +5,14 @@ from app.core.deps import get_current_user_id, get_db
 from app.repositories.questionnaire_answer_repository import (
     QuestionnaireAnswerRepository,
 )
+from app.repositories.questionnaire_question_option_repository import (
+    QuestionnaireQuestionOptionRepository,
+)
 from app.repositories.questionnaire_question_repository import (
     QuestionnaireQuestionRepository,
+)
+from app.repositories.questionnaire_question_scenario_repository import (
+    QuestionnaireQuestionScenarioRepository,
 )
 from app.schemas.questionnaire import SubmitQuestionnaireRequest
 from app.services.questionnaire_service import QuestionnaireService
@@ -21,7 +27,10 @@ def submit_questionnaire(
     db: Session = Depends(get_db),
 ):
     service = QuestionnaireService(
-        QuestionnaireAnswerRepository(db), QuestionnaireQuestionRepository(db)
+        QuestionnaireAnswerRepository(db),
+        QuestionnaireQuestionRepository(db),
+        QuestionnaireQuestionOptionRepository(db),
+        QuestionnaireQuestionScenarioRepository(db),
     )
     service.submit_answers(user_id, [a.model_dump() for a in request.answers])
     return {"success": True}

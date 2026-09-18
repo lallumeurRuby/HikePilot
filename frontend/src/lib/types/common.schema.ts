@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const ViolationTypeSchema = z.enum([
   'UNAUTHENTICATED',
   'MISSING_REQUIRED_ANSWER',
+  'INVALID_OPTION_CODE',
   'PROFILE_INCOMPLETE',
   'ROUTE_NOT_SELECTED',
   'ROUTE_NOT_IN_RECOMMENDATION',
