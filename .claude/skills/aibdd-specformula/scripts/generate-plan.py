@@ -83,7 +83,7 @@ def main():
         print(f"Error: {arguments_yml} not found. Run /aibdd-kickoff first.", file=sys.stderr)
         sys.exit(1)
 
-    with open(arguments_yml) as f:
+    with open(arguments_yml, encoding="utf-8") as f:
         args_data = yaml.safe_load(f) or {}
 
     variables = resolve_variables(args_data, args.slug, args.summary, project_root)

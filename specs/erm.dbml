@@ -1,0 +1,139 @@
+// erm.dbml — HikePilot 登山路線推薦與規劃書生成
+// 由 specs/features/{auth,profile,recommendation,plan}/*.feature 推導（Phase 02 Entity Modeling）
+
+Table user {
+  id          integer   [pk, increment]
+  google_id   varchar   [unique, not null]
+  email       varchar   [unique, not null]
+  name        varchar
+  created_at  timestamp [not null]
+
+  Note: '透過 Google OAuth 登入建立的使用者帳號（首次登入即建立，見 使用者透過Google登入.feature）'
+}
+
+Table questionnaire_question {
+  id             integer            [pk, increment]
+  code           varchar            [unique, not null, note: 'Q1-Q11']
+  question_text  text               [not null]
+  answer_type    answer_type_enum   [not null]
+  is_required    boolean            [not null]
+  display_order  integer            [not null]
+
+  Note: '個人條件問卷題目定義，對應 填寫個人條件問卷.feature 的 Background'
+}
+
+Table questionnaire_answer {
+  id            integer   [pk, increment]
+  user_id       integer   [not null]
+  question_id   integer   [not null]
+  answer_value  text      [note: '複選/矩陣型答案以 JSON 字串序列化儲存']
+  answered_at   timestamp [not null]
+
+  indexes {
+    (user_id, question_id) [unique]
+  }
+
+  Note: '使用者對問卷各題的回答；同一題更新時覆蓋既有回答'
+}
+
+Table route {
+  id                        integer                [pk, increment]
+  name                      varchar                [not null]
+  region                    varchar
+  distance_km               decimal
+  elevation_gain_m          integer
+  estimated_duration_hours  decimal
+  difficulty_level          difficulty_level_enum
+  terrain_steep_stairs      boolean                [not null, default: false]
+  terrain_slippery          boolean                [not null, default: false]
+  terrain_rope_scramble     boolean                [not null, default: false]
+  terrain_exposed_ridge     boolean                [not null, default: false]
+  terrain_unclear_trail     boolean                [not null, default: false]
+  no_signal_area            boolean                [not null, default: false]
+  open_status               open_status_enum       [not null]
+  open_status_updated_at    timestamp
+  data_source               varchar                [note: '路線基礎資料候選來源，如政府資料開放平臺/林業及自然保育署']
+  external_id               varchar                [note: '對應候選資料來源的原始 ID，供同步更新使用']
+
+  Note: '路線知識庫條目，供 RAG 檢索使用。terrain_* 欄位對應問卷 Q5 的風險情境維度'
+}
+
+Table recommendation {
+  id            integer   [pk, increment]
+  user_id       integer   [not null]
+  requested_at  timestamp [not null]
+  has_matches   boolean   [not null]
+
+  Note: '一次路線推薦請求的結果；has_matches = false 對應「無符合資料」'
+}
+
+Table recommendation_route {
+  id                 integer  [pk, increment]
+  recommendation_id  integer  [not null]
+  route_id           integer  [not null]
+  rank               integer  [not null, note: '推薦排序，1~3']
+
+  Note: '推薦結果中的路線清單（1~3 條）'
+}
+
+Table hiking_plan {
+  id                 integer   [pk, increment]
+  user_id            integer   [not null]
+  route_id           integer   [not null]
+  recommendation_id  integer
+  pdf_url            varchar
+  generated_at       timestamp [not null]
+
+  Note: '使用者選定路線後生成的登山規劃書'
+}
+
+Table hiking_plan_section {
+  id              integer            [pk, increment]
+  hiking_plan_id  integer            [not null]
+  section_order   integer            [not null]
+  section_name    section_name_enum  [not null]
+  content         text
+
+  Note: '規劃書的 8 大區塊內容，對應 生成登山規劃書.feature 的 Rule 資料表'
+}
+
+Enum answer_type_enum {
+  single_choice
+  multi_choice
+  open_text
+  matrix_single_choice
+}
+
+Enum difficulty_level_enum {
+  easy
+  moderate
+  hard
+  expert
+}
+
+Enum open_status_enum {
+  open
+  closed
+  partial_closed
+}
+
+Enum section_name_enum {
+  route_summary        [note: '路線摘要']
+  itinerary             [note: '分段行程']
+  weather_conditions    [note: '天氣路況']
+  risk_response         [note: '風險應對']
+  gear_supply           [note: '裝備補給']
+  transportation        [note: '交通資訊']
+  emergency_response    [note: '緊急應變（撤退條件、替代方案）']
+  pre_trip_checklist    [note: '行前 Checklist']
+}
+
+Ref: questionnaire_answer.user_id > user.id
+Ref: questionnaire_answer.question_id > questionnaire_question.id
+Ref: recommendation.user_id > user.id
+Ref: recommendation_route.recommendation_id > recommendation.id
+Ref: recommendation_route.route_id > route.id
+Ref: hiking_plan.user_id > user.id
+Ref: hiking_plan.route_id > route.id
+Ref: hiking_plan.recommendation_id > recommendation.id
+Ref: hiking_plan_section.hiking_plan_id > hiking_plan.id

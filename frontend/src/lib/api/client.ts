@@ -1,8 +1,8 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '/api/v1'
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '/api'
 
 interface ApiError {
-  code: string
-  message: string
+  violation_type: string
+  message?: string
 }
 
 interface ApiResponse<T> {
@@ -45,8 +45,8 @@ export async function apiClient<T>(
   const json: ApiResponse<T> = await res.json()
 
   if (!res.ok || !json.success) {
-    const error = json.error ?? { code: 'UNKNOWN', message: res.statusText }
-    throw new ApiClientError(error.code, error.message, res.status)
+    const error = json.error ?? { violation_type: 'UNKNOWN', message: res.statusText }
+    throw new ApiClientError(error.violation_type, error.message ?? error.violation_type, res.status)
   }
 
   return json.data as T
@@ -54,7 +54,7 @@ export async function apiClient<T>(
 
 export class ApiClientError extends Error {
   constructor(
-    public readonly code: string,
+    public readonly violationType: string,
     message: string,
     public readonly status: number
   ) {

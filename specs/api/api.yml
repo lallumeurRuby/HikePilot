@@ -1,0 +1,259 @@
+openapi: 3.0.0
+info:
+  title: HikePilot API
+  version: 1.0.0
+  description: >
+    由 specs/features/{auth,profile,recommendation,plan}/*.feature 推導（Phase 04 API Contract）。
+    Response envelope 統一為 { success, data } 或 { success, error }。
+
+paths:
+  /auth/google:
+    post:
+      operationId: loginWithGoogle
+      summary: 使用者透過 Google 登入/註冊
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleLoginRequest'
+      responses:
+        '200':
+          description: 登入/註冊成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLoginResponse'
+
+  /profile/questionnaire:
+    post:
+      operationId: submitQuestionnaireAnswers
+      summary: 填寫/更新個人條件問卷
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitQuestionnaireRequest'
+      responses:
+        '200':
+          description: 問卷提交成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: 必答題未填寫（violation_type = MISSING_REQUIRED_ANSWER）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: 使用者未完成 Google 登入（violation_type = UNAUTHENTICATED）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /recommendations:
+    post:
+      operationId: requestRouteRecommendation
+      summary: 請求路線推薦
+      responses:
+        '200':
+          description: 推薦成功（可能為 0 條，即無符合資料）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendationResponse'
+        '401':
+          description: 使用者未完成 Google 登入（violation_type = UNAUTHENTICATED）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: 個人條件問卷必答題尚未完成（violation_type = PROFILE_INCOMPLETE）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /plans:
+    post:
+      operationId: generateHikingPlan
+      summary: 選定路線並生成登山規劃書
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeneratePlanRequest'
+      responses:
+        '200':
+          description: 規劃書生成成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneratePlanResponse'
+        '400':
+          description: 未指定路線（violation_type = ROUTE_NOT_SELECTED）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: 選定的路線不在使用者當次的推薦結果中（violation_type = ROUTE_NOT_IN_RECOMMENDATION）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    # ── 共用 Envelope ──────────────────────────────
+
+    SuccessResponse:
+      type: object
+      required: [success]
+      properties:
+        success: { type: boolean, enum: [true] }
+
+    ErrorResponse:
+      type: object
+      required: [success, error]
+      properties:
+        success: { type: boolean, enum: [false] }
+        error:
+          type: object
+          required: [violation_type]
+          properties:
+            violation_type:
+              type: string
+              enum:
+                - UNAUTHENTICATED
+                - MISSING_REQUIRED_ANSWER
+                - PROFILE_INCOMPLETE
+                - ROUTE_NOT_SELECTED
+                - ROUTE_NOT_IN_RECOMMENDATION
+            message: { type: string }
+
+    # ── /auth/google ──────────────────────────────
+
+    GoogleLoginRequest:
+      type: object
+      required: [google_id, email, name]
+      properties:
+        google_id: { type: string }
+        email: { type: string, format: email }
+        name: { type: string }
+
+    GoogleLoginResponse:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, enum: [true] }
+        data:
+          type: object
+          required: [is_new_user, token]
+          properties:
+            is_new_user: { type: boolean }
+            token:
+              type: string
+              description: 後續請求需帶入 Authorization: Bearer <token>
+            next_step:
+              type: string
+              enum: [questionnaire]
+              description: 僅首次登入（is_new_user = true）時提供
+
+    # ── /profile/questionnaire ──────────────────────────────
+
+    SubmitQuestionnaireRequest:
+      type: object
+      required: [answers]
+      properties:
+        answers:
+          type: array
+          items:
+            type: object
+            required: [question_code, answer_value]
+            properties:
+              question_code:
+                type: string
+                enum: [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11]
+              answer_value:
+                type: string
+                description: 複選/矩陣型答案以序列化字串表示
+
+    # ── /recommendations ──────────────────────────────
+
+    RecommendationResponse:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, enum: [true] }
+        data:
+          type: object
+          required: [has_matches, routes]
+          properties:
+            has_matches: { type: boolean }
+            routes:
+              type: array
+              maxItems: 3
+              items:
+                $ref: '#/components/schemas/RouteSummary'
+
+    RouteSummary:
+      type: object
+      required: [route_id, name]
+      properties:
+        route_id: { type: integer }
+        name: { type: string }
+
+    # ── /plans ──────────────────────────────
+
+    GeneratePlanRequest:
+      type: object
+      properties:
+        route_id:
+          type: integer
+          description: 必須是使用者當次推薦結果中的路線 route_id；未提供時觸發 ROUTE_NOT_SELECTED
+
+    GeneratePlanResponse:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, enum: [true] }
+        data:
+          type: object
+          required: [sections, pdf_url]
+          properties:
+            sections:
+              type: array
+              minItems: 8
+              maxItems: 8
+              items:
+                $ref: '#/components/schemas/PlanSection'
+            pdf_url:
+              type: string
+              format: uri
+
+    PlanSection:
+      type: object
+      required: [section_order, section_name]
+      properties:
+        section_order:
+          type: integer
+          minimum: 1
+          maximum: 8
+        section_name:
+          type: string
+          enum:
+            - 路線摘要
+            - 分段行程
+            - 天氣路況
+            - 風險應對
+            - 裝備補給
+            - 交通資訊
+            - 緊急應變（撤退條件、替代方案）
+            - 行前 Checklist
